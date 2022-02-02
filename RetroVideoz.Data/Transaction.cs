@@ -15,5 +15,10 @@ namespace RetroVideoz.Data
         [ForeignKey(nameof(Video))]
         public int VideoID { get; set; }
         public virtual Video Video { get; set; }
+        [ForeignKey(nameof(ApplicationUser))]
+        public int UserID { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Required]
+        public DateTimeOffset TransactionDate { get; set; }
     }
 }
