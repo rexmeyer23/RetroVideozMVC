@@ -1,45 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetroVideoz.Data
+namespace RetroVideoz.Models.Transaction
 {
-    public enum ContentRating
+    public class TransactionEdit
     {
-        G = 1,
-        PG,
-        PG_13,
-        R,
-        NC_17,
-        NR
-    }
-    public enum GenreType
-    {
-        Horror = 1,
-        Thriller,
-        Documentary,
-        RomCom,
-        Romance,
-        Drama,
-        Action,
-        Comedy,
-        Animated
-    }
-    public enum HomeVideoFormat
-    {
-        VHS = 1,
-        DVD,
-        Bluray,
-        UHD
-    }
-    public class Video
-    {
-        [Key]
-        [Required]
         public int VideoID { get; set; }
         [Required]
         public string Title { get; set; }

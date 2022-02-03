@@ -55,10 +55,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Review\ReviewCreate.cs" />
+    <Compile Include="Review\ReviewDetail.cs" />
+    <Compile Include="Review\ReviewEdit.cs" />
+    <Compile Include="Review\ReviewListItem.cs" />
+    <Compile Include="Transaction\TransactionCreate.cs" />
+    <Compile Include="Transaction\TransactionDetail.cs" />
+    <Compile Include="Transaction\TransactionEdit.cs" />
+    <Compile Include="Transaction\TransactionListItem.cs" />
+    <Compile Include="Video\VideoCreate.cs" />
+    <Compile Include="Video\VideoDetail.cs" />
+    <Compile Include="Video\VideoEdit.cs" />
+    <Compile Include="Video\VideoListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RetroVideoz.Data\RetroVideoz.Data.csproj">
+      <Project>{3502D697-D967-4998-9FC8-05CFB4023E5E}</Project>
+      <Name>RetroVideoz.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
