@@ -18,5 +18,7 @@ namespace RetroVideoz.Models.Review
         public decimal StarRating { get; set; }
         [Display(Name = "Would Recommend?")]
         public bool WouldRecommend { get; set; }
+        [Display(Name = "Date Review was Added")]
+        public DateTimeOffset? DateAdded { get; set; }
     }
 }

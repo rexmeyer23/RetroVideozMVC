@@ -21,6 +21,8 @@ namespace RetroVideoz.Data
         public decimal StarRating { get; set; }
         [Required]
         public bool WouldRecommend { get; set; }
+        [Required]
+        public DateTimeOffset? DateAdded { get; set; }
         [ForeignKey(nameof(Video))]
         [Required]
         public int VideoID { get; set; }
@@ -29,5 +31,6 @@ namespace RetroVideoz.Data
         [Required]
         public int UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+        public Guid OwnerID { get; set; }
     }
 }
