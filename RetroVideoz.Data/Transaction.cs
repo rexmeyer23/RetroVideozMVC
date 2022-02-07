@@ -19,6 +19,6 @@ namespace RetroVideoz.Data
         public int UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
-        public DateTimeOffset TransactionDate { get; set; }
+        public DateTimeOffset? TransactionDate { get; set; }
     }
 }
