@@ -25,5 +25,7 @@ namespace RetroVideoz.Models.Video
         public HomeVideoFormat Format { get; set; }
         [Display(Name = "Price")]
         public decimal Price { get; set; }
+        [Display(Name = "Video Image")]
+        public byte[] Image { get; set; }
     }
 }

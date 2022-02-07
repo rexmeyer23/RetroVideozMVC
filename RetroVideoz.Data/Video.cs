@@ -59,9 +59,11 @@ namespace RetroVideoz.Data
         [Required]
         public int UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
         public byte[] Image { get; set; }
 
         //adding image
+        public Guid OwnerID { get; set; }
 
     }
 }

@@ -55,10 +55,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewService.cs" />
+    <Compile Include="TransactionService.cs" />
+    <Compile Include="VideoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RetroVideoz.Data\RetroVideoz.Data.csproj">
+      <Project>{3502D697-D967-4998-9FC8-05CFB4023E5E}</Project>
+      <Name>RetroVideoz.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RetroVideoz.Models\RetroVideoz.Models.csproj">
+      <Project>{CC278FC3-BC78-477A-9F3C-D96C62F654B2}</Project>
+      <Name>RetroVideoz.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
