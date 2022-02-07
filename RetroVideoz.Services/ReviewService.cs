@@ -58,25 +58,108 @@ namespace RetroVideoz.Services
                     .OrderBy(r => r.DateAdded)
                     .Select(e => new ReviewListItem
                     {
-                        ReviewID = e.ReviewID,
+                        //ReviewID = e.ReviewID,
+                        ReviewHeader = e.ReviewHeader,
                         ReviewText = e.ReviewText,
                         StarRating = e.StarRating,
                         WouldRecommend = e.WouldRecommend,
                         DateAdded = e.DateAdded
                     });
                 return query.ToArray();
-                    //new ReviewListItem
-                    //{
-                    //    ReviewHeader = entity.ReviewHeader,
-                    //    ReviewText = entity.ReviewText,
-                    //    StarRating = entity.StarRating,
-                    //    WouldRecommend = entity.WouldRecommend,
-                    //    DateAdded = entity.DateAdded,
-                    //};
             }
         }
-        //get reviews by id
+        public IEnumerable<ReviewListItem> GetReviewsByVideoID(int videoID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Reviews
+                    .Where(e => e.Video.VideoID == videoID)
+                    .OrderBy(r => r.DateAdded)
+                    .Select(e => new ReviewListItem
+                    {
+                        //ReviewID = e.ReviewID,
+                        ReviewHeader = e.ReviewHeader,
+                        ReviewText = e.ReviewText,
+                        StarRating = e.StarRating,
+                        WouldRecommend = e.WouldRecommend,
+                        DateAdded = e.DateAdded
+                    });
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<ReviewListItem> GetReviewsByUserID(int userID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Reviews
+                    .Where(e => e.Video.UserID == userID)
+                    .OrderBy(r => r.DateAdded)
+                    .Select(e => new ReviewListItem
+                    {
+                        //ReviewID = e.ReviewID,
+                        ReviewHeader = e.ReviewHeader,
+                        ReviewText = e.ReviewText,
+                        StarRating = e.StarRating,
+                        WouldRecommend = e.WouldRecommend,
+                        DateAdded = e.DateAdded
+                    });
+                return query.ToArray();
+            }
+        }
+        public ReviewDetail GetReviewByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = 
+                    ctx
+                    .Reviews
+                    .OrderBy(r => r.DateAdded)
+                    .Single(e => e.ReviewID == id);
+                return
+                    new ReviewDetail
+                    {
+                        ReviewText = entity.ReviewText,
+                        StarRating = entity.StarRating,
+                        WouldRecommend = entity.WouldRecommend,
+                        DateAdded = entity.DateAdded
+                    };
+            }
+        }
+       
         //get reviews by video id
+
+        public bool UpdateReview(ReviewEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reviews
+                    .Single(e => e.ReviewID == model.ReviewID);
+                entity.ReviewText = model.ReviewText;
+                entity.StarRating = model.StarRating;
+                entity.WouldRecommend = model.WouldRecommend;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteReview(int reviewID)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = 
+                    ctx
+                    .Reviews
+                    .Single(e => e.ReviewID==reviewID);
+                ctx.Reviews.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 
