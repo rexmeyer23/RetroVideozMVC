@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Services
 {
-    public class Cart
+    public class CartServices
     {
     }
 }

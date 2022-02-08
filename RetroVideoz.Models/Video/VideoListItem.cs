@@ -6,15 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetroVideoz.Models.Video
+namespace RetroVideoz.Models
 {
     public class VideoListItem
     {
         public int VideoID { get; set; }
         [Display(Name = "Title")]
         public string Title { get; set; }
-        [Display(Name = "Description")]
-        public string Description { get; set; }
         [Display(Name = "Year")]
         public int Year { get; set; }
         [Display(Name = "Rating")]

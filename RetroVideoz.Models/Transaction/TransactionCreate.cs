@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetroVideoz.Models.Transaction
+namespace RetroVideoz.Models
 {
     public class TransactionCreate
     {
         public int TransactionID { get; set; }
-        [Display(Name = "Video")]
-        public int VideoID { get; set; }
-        [Display(Name = "User")]
+        [Required]
+        public int CartID { get; set; }
+        public virtual Cart Cart { get; set; }
+        [ForeignKey(nameof(ApplicationUser))]
         public string UserID { get; set; }
-
-        [Display(Name = "Date of Transaction")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Required]
+        [Display(Name = "Transaction Date")]
         public DateTime? TransactionDate { get; set; }
     }
 }

@@ -14,15 +14,20 @@ namespace RetroVideoz.Data
         [Required]
         public int ReviewID { get; set; }
         [Required]
+        [Display(Name = "Header")]
         public string ReviewHeader { get; set; }
         [Required]
+        [Display(Name = "Text")]
         public string ReviewText { get; set; }
         [Required]
+        [Display(Name = "Star Rating")]
         public decimal StarRating { get; set; }
         [Required]
+        [Display(Name = "Would Recommend?")]
         public bool WouldRecommend { get; set; }
         [Required]
-        public DateTimeOffset? DateAdded { get; set; }
+        [Display(Name = "Date Added")]
+        public DateTime? DateAdded { get; set; }
         [ForeignKey(nameof(Video))]
         [Required]
         public int VideoID { get; set; }

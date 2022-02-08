@@ -19,6 +19,7 @@ namespace RetroVideoz.Data
         public string UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
+        [Display(Name = "Transaction Date")]
         public DateTime? TransactionDate { get; set; }
     }
 }

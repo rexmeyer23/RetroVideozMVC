@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetroVideoz.Models.Transaction
+namespace RetroVideoz.Models
 {
     public class TransactionListItem
     {

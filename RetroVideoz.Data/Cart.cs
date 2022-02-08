@@ -12,11 +12,14 @@ namespace RetroVideoz.Data
     {
         [Key]
         public int CartID { get; set; }
-        [Required]
-        public IEnumerable<Video> Videos { get; set; }
+        public ICollection<Video> VideosInCart { get; set; }
         [Required]
         [ForeignKey(nameof(Transaction))]
         public int TransactionID { get; set; }
         public Transaction Transaction { get; set; }
+        public Cart()
+        {
+            VideosInCart = new HashSet<Video>();
+        }
     }
 }

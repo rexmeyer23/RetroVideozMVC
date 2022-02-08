@@ -42,24 +42,32 @@ namespace RetroVideoz.Data
         [Required]
         public int VideoID { get; set; }
         [Required]
+        [Display(Name = "Movie")]
         public string Title { get; set; }
         [Required]
+        [Display(Name = "Description")]
         public string Description { get; set; }
         [Required]
+        [Display(Name = "Year")]
         public int Year { get; set; }
         [Required]
+        [Display(Name = "Rating")]
         public ContentRating Rating { get; set; }
         [Required]
+        [Display(Name = "Genre")]
         public GenreType Genre { get; set; }
         [Required]
+        [Display(Name = "Format")]
         public HomeVideoFormat Format { get; set; }
         [Required]
+        [Display(Name = "Price")]
         public decimal Price { get; set; }
+        public int Quantity { get; set; }
         [Required]
         [ForeignKey(nameof(Cart))]
         public int CartID { get; set; }
         public Cart Cart { get; set; }
-        public IEnumerable<Review> Reviews { get; set; }
+        public ICollection<Review> ListOfReviews { get; set; }
         [ForeignKey(nameof(ApplicationUser))]
         [Required]
         public string UserID { get; set; }
@@ -70,5 +78,9 @@ namespace RetroVideoz.Data
         //adding image
         public Guid OwnerID { get; set; }
 
+        public Video()
+        {
+            ListOfReviews = new HashSet<Review>();
+        }
     }
 }

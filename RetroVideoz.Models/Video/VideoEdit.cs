@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetroVideoz.Models.Video
+namespace RetroVideoz.Models
 {
     public class VideoEdit
     {
