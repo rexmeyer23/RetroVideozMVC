@@ -40,7 +40,7 @@ namespace RetroVideoz.Data
     {
         [Key]
         [Required]
-        public int VideoID { get; set; }
+        public int? VideoID { get; set; }
         [Required]
         [Display(Name = "Movie")]
         public string Title { get; set; }
@@ -65,7 +65,7 @@ namespace RetroVideoz.Data
         public int Quantity { get; set; }
         [Required]
         [ForeignKey(nameof(Cart))]
-        public int CartID { get; set; }
+        public int? CartID { get; set; }
         public Cart Cart { get; set; }
         public ICollection<Review> ListOfReviews { get; set; }
         [ForeignKey(nameof(ApplicationUser))]
