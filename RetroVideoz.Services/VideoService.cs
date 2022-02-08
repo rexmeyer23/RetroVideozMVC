@@ -78,6 +78,7 @@ namespace RetroVideoz.Services
                             Year = e.Year,
                             Format = e.Format,
                             Price = e.Price,
+                            Image = e.Image,
                         }
                         );
                 return query.ToArray();
@@ -102,6 +103,7 @@ namespace RetroVideoz.Services
                         Genre = entity.Genre,
                         Format = entity.Format,
                         Price = entity.Price,
+                        Image = entity.Image,
                     };
             }
         }
@@ -120,12 +122,27 @@ namespace RetroVideoz.Services
                 entity.Genre = model.Genre;
                 entity.Format = model.Format;
                 entity.Price = model.Price;
-                //entity.Image = model.Image;
+                entity.Image = model.Image;
 
                 return ctx.SaveChanges() == 1;
             }
         }
+        //method for buying a movie, essentially just updating the owner, 
+        //build edit method, call to transaction method,just call owner id
 
+        public bool TradeAVideo(VideoEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Videos
+                    .Single(e => e.Equals(model.VideoID));
+                entity.UserID = model.UserID;
+
+                return ctx.SaveChanges() == 1;  
+            }
+        }
         public bool DeleteVideo(int videoID)
         {
             using (var ctx = new ApplicationDbContext())

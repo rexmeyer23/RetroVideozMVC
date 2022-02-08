@@ -57,7 +57,7 @@ namespace RetroVideoz.Data
         public decimal Price { get; set; }
         [ForeignKey(nameof(ApplicationUser))]
         [Required]
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public byte[] Image { get; set; }

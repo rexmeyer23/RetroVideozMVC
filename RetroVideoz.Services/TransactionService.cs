@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Services
 {
-    internal class TransactionService
+    public class TransactionService
     {
     }
 }
