@@ -14,6 +14,7 @@ namespace RetroVideoz.Services
         {
             var entity = new Review()
             {
+                ReviewID = model.ReviewID,
                 ReviewHeader = model.ReviewHeader,
                 ReviewText = model.ReviewText,
                 StarRating = model.StarRating,
@@ -37,6 +38,7 @@ namespace RetroVideoz.Services
                     .OrderBy(x => x.DateAdded)
                     .Select(review => new ReviewListItem
                     {
+                        
                         ReviewHeader = review.ReviewHeader,
                         ReviewText = review.ReviewText,
                         StarRating = review.StarRating,
@@ -89,7 +91,7 @@ namespace RetroVideoz.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<ReviewListItem> GetReviewsByUserID(int userID)
+        public IEnumerable<ReviewListItem> GetReviewsByUserID(string userID)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -140,6 +142,7 @@ namespace RetroVideoz.Services
                     ctx
                     .Reviews
                     .Single(e => e.ReviewID == model.ReviewID);
+                entity.ReviewHeader = model.ReviewHeader;
                 entity.ReviewText = model.ReviewText;
                 entity.StarRating = model.StarRating;
                 entity.WouldRecommend = model.WouldRecommend;

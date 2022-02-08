@@ -20,5 +20,7 @@ namespace RetroVideoz.Models.Review
         public bool WouldRecommend { get; set; }
         [Display(Name = "Date Review was Added")]
         public DateTimeOffset? DateAdded { get; set; }
+        public int VideoID { get; set; }
+        public string UserID { get; set; }
     }
 }

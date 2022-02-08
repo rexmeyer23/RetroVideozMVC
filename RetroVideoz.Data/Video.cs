@@ -55,6 +55,11 @@ namespace RetroVideoz.Data
         public HomeVideoFormat Format { get; set; }
         [Required]
         public decimal Price { get; set; }
+        [Required]
+        [ForeignKey(nameof(Cart))]
+        public int CartID { get; set; }
+        public Cart Cart { get; set; }
+        public IEnumerable<Review> Reviews { get; set; }
         [ForeignKey(nameof(ApplicationUser))]
         [Required]
         public string UserID { get; set; }

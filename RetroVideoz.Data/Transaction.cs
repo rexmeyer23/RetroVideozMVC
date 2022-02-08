@@ -12,9 +12,9 @@ namespace RetroVideoz.Data
     {
         [Key]
         public int TransactionID { get; set; }
-        [ForeignKey(nameof(Video))]
-        public int VideoID { get; set; }
-        public virtual Video Video { get; set; }
+        [ForeignKey(nameof(Cart))]
+        public int CartID { get; set; }
+        public virtual Cart Cart { get; set; }
         [ForeignKey(nameof(ApplicationUser))]
         public string UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }

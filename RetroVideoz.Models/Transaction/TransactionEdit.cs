@@ -10,7 +10,11 @@ namespace RetroVideoz.Models.Transaction
     public class TransactionEdit
     {
 
-        public string TransactionId { get; set; }
+        public int TransactionID { get; set; }
+        [Display(Name = "Video")]
+        public int VideoID { get; set; }
+        [Display(Name = "User")]
+        public string UserID { get; set; }
         [Display(Name = "Date of Transaction")]
         public DateTime? TransactionDate { get; set; }
        

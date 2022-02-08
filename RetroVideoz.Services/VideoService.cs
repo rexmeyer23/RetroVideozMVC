@@ -60,7 +60,7 @@ namespace RetroVideoz.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<VideoListItem> GetVideosByUserID(int userID)
+        public IEnumerable<VideoListItem> GetVideosByUserID(string userID)
         {
             using (var ctx = new ApplicationDbContext())
             {
