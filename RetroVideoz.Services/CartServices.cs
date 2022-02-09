@@ -83,36 +83,52 @@ namespace RetroVideoz.Services
             }
         }
         //add following method to controller
-        public bool AddVideoToCart(int videoID)
+        //public bool AddVideoToCart(int videoID)
+        //{
+        //    var cartItem = _db.GetVideoByID(videoID);
+        //    if (cartItem != null)
+        //    {
+        //        cartItem.Quantity
+        //    }
+        //    else
+        //    {
+        //        _ds.
+        //    }
+
+        //    //recall video database
+        //    //select video
+        //    //call cart
+        //    //add item to cart
+
+        //}
+        public bool UpdateCart(CartEdit model)
         {
-            var cartItem = _db.GetVideoByID(videoID);
-            if (cartItem != null)
+            using(var ctx = new ApplicationDbContext())
             {
-                cartItem.Quantity
-            }
-            else
-            {
-                _ds.
-            }
+                var entity =
+                    ctx
+                    .Carts
+                    .Single(e => e.CartID.Equals(model.CartID));
 
-            //recall video database
-            //select video
-            //call cart
-            //add item to cart
-
+                entity.CartID = model.CartID;
+                entity.TransactionID = model.TransactionID;
+                return ctx.SaveChanges() == 1;
+            }
         }
         
-        
-        //public bool DeleteCart(int cartID)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            .ctx
-        //            .Carts
-        //            .Single
-        //    }
-        //}
+        public bool DeleteCart(int cartID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Carts
+                    .Single(e => e.CartID == cartID);
+                ctx.Carts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 

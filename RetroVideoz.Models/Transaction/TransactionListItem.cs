@@ -10,9 +10,6 @@ namespace RetroVideoz.Models
     public class TransactionListItem
     {
         public int TransactionID { get; set; }
-        [Display(Name = "Video")]
-        public int VideoID { get; set; }
-        public string Title { get; set; }
         [Display(Name = "User")]
         public string UserID { get; set; }
         public string Username { get; set; }
