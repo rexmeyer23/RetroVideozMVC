@@ -172,6 +172,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\VideoController.cs" />
@@ -244,6 +245,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Cart\" />
+    <Folder Include="Views\Review\" />
     <Folder Include="Views\Roles\" />
     <Folder Include="Views\Transaction\" />
   </ItemGroup>

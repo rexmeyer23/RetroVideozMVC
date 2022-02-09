@@ -50,7 +50,7 @@ namespace RetroVideoz.Data
                 .Add(new IdentityUserRoleConfiguration());
         }
     }
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
         public IdentityUserLoginConfiguration()
         {
