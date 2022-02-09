@@ -259,6 +259,14 @@
       <Project>{3502D697-D967-4998-9FC8-05CFB4023E5E}</Project>
       <Name>RetroVideoz.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RetroVideoz.Models\RetroVideoz.Models.csproj">
+      <Project>{CC278FC3-BC78-477A-9F3C-D96C62F654B2}</Project>
+      <Name>RetroVideoz.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RetroVideoz.Services\RetroVideoz.Services.csproj">
+      <Project>{98157BEA-DF47-450A-A518-EEEEB203FB7A}</Project>
+      <Name>RetroVideoz.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

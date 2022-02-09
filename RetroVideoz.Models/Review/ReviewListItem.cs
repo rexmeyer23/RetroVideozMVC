@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RetroVideoz.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,13 +17,15 @@ namespace RetroVideoz.Models
         [Required]
         [Display(Name = "Star Rating")]
         public decimal StarRating { get; set; }
-        [Required]
-        [Display(Name = "User")]
-        public string UserID { get; set; }
-        public string Username { get; set; }
-        [Required]
-        public int VideoID { get; set; }
+        [Display(Name = "Date Added")]
+        public DateTime? DateAdded { get; set; }
+        //[Required]
+        //[Display(Name = "User")]
+        //public string UserID { get; set; }
+        //public string Username { get; set; }
+        public string Video { get; set; }
         [Display(Name = "Video")]
-        public string Title { get; set; }
+        public string VideoTitle { get; set;}
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RetroVideoz.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,13 +26,15 @@ namespace RetroVideoz.Models
         [Required]
         [Display(Name = "Date Review was Added")]
         public DateTime? DateAdded { get; set; }
-        [Required]
+        
         [Display(Name = "User")]
         public string UserID { get; set; }
         public string Username { get; set; }
         [Required]
-        public int VideoID { get; set; }
         [Display(Name = "Video")]
-        public string Title { get; set; }
+        public int VideoID { get; set; }
+        public string VideoTitle { get; set; }
+      
+       
     }
 }

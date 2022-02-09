@@ -15,9 +15,7 @@ namespace RetroVideoz.Data
         [ForeignKey(nameof(Cart))]
         public int CartID { get; set; }
         public virtual Cart Cart { get; set; }
-        [ForeignKey(nameof(ApplicationUser))]
-        public string UserID { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
+ 
         [Required]
         [Display(Name = "Transaction Date")]
         public DateTime? TransactionDate { get; set; }

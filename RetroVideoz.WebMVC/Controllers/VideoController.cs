@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using RetroVideoz.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
+
 
 namespace RetroVideoz.WebMVC.Controllers
 {
@@ -11,7 +15,11 @@ namespace RetroVideoz.WebMVC.Controllers
         // GET: Video
         public ActionResult Index()
         {
-            return View();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VideoService(userId);
+            var model = service.GetVideos();
+
+            return View(model);
         }
     }
 }

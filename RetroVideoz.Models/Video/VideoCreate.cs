@@ -35,7 +35,7 @@ namespace RetroVideoz.Models
         public int CartID { get; set; }
 
         [Display(Name = "User")]
-        public string UserID { get; set; }
+        public Guid OwnerID { get; set; }
         [Display(Name ="Video Image")]
         public byte[] Image { get; set; }   
      

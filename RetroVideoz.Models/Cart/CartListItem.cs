@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Models
 {
-    internal class CartListItem
+    public class CartListItem
     {
         public int CartID { get; set; }
         [Required, ForeignKey(nameof(Transaction))]
         public int TransactionID { get; set; }
         public virtual Transaction Transaction { get; set; }
+        public ICollection<Video> VideosInCart { get; set; }
     }
 }

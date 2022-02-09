@@ -28,6 +28,6 @@ namespace RetroVideoz.Models
         [Display(Name = "Video Image")]
         public byte[] Image { get; set; }
         [Display(Name = "User")]
-        public string UserID { get; set; } //save user who is logged, save guid to user, and use to update other guid
+        public Guid OwnerID { get; set; } //save user who is logged, save guid to user, and use to update other guid
     }
 }

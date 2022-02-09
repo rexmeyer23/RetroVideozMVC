@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroVideoz.WebMVC", "RetroVideoz.WebMVC\RetroVideoz.WebMVC.csproj", "{77C34492-EE87-463B-9A7C-FA9AD7219858}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CC278FC3-BC78-477A-9F3C-D96C62F654B2} = {CC278FC3-BC78-477A-9F3C-D96C62F654B2}
+		{98157BEA-DF47-450A-A518-EEEEB203FB7A} = {98157BEA-DF47-450A-A518-EEEEB203FB7A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroVideoz.Data", "RetroVideoz.Data\RetroVideoz.Data.csproj", "{3502D697-D967-4998-9FC8-05CFB4023E5E}"
 EndProject

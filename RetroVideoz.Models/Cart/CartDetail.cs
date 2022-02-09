@@ -15,5 +15,7 @@ namespace RetroVideoz.Models
         [Required, ForeignKey(nameof(Transaction))]
         public int TransactionID { get; set; }
         public virtual Transaction Transaction { get; set; }
+        public ICollection<Video> VideosInCart { get; set; }
+        public string UserID { get; set; }
     }
 }

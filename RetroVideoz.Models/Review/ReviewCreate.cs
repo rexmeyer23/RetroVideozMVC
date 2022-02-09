@@ -26,6 +26,7 @@ namespace RetroVideoz.Models
         [Required, Display(Name = "Movie")]
         public int VideoID { get; set; }
         public virtual Video Video { get; set; }
+        [Display(Name = "User")]
         public string UserID { get; set; }
     }
 }

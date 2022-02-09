@@ -21,5 +21,9 @@ namespace RetroVideoz.Data
         {
             VideosInCart = new HashSet<Video>();
         }
+        [Required]
+        [ForeignKey(nameof(ApplicationUser))]
+        public string UserID { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }
