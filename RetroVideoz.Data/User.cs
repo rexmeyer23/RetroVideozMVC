@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Data
 {
-    public class User
-    {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-    }
+    //public class User
+    //{
+    //    [Key]
+    //    public int Id { get; set; }
+    //    [Required]
+    //    [Display(Name = "Username")]
+    //    public string Username { get; set; }
+    //}
 }

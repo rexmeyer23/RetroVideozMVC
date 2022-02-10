@@ -11,16 +11,16 @@ namespace RetroVideoz.Services
     public class CartServices
     {
         public string CartID { get; set; }
-        private VideoService _db;
-        private CartServices _ds;
+        //private VideoService _db;
+        //private CartServices _ds;
         public bool CreateCart(CartCreate model)
         {
             var entity =
                 new Cart()
                 {
                     CartID = model.CartID,
-                    UserID = model.ApplicationUser.Username,
-                    TransactionID = model.TransactionID,
+                    UserID = model.UserID,
+                    //TransactionID = model.TransactionID,
                     VideosInCart = model.VideosInCart,
                 };
             using (var ctx = new ApplicationDbContext())
@@ -40,7 +40,7 @@ namespace RetroVideoz.Services
                     CartListItem carts = new CartListItem
                     {
                         CartID = cart.CartID,
-                        TransactionID = cart.TransactionID,
+                        //TransactionID = cart.TransactionID,
                         VideosInCart = cart.VideosInCart,
                     };
                     list.Add(carts);
@@ -59,7 +59,7 @@ namespace RetroVideoz.Services
                     .Select(e => new CartListItem
                     {
                         CartID = e.CartID,
-                        TransactionID = e.TransactionID,
+                        //TransactionID = e.TransactionID,
                         VideosInCart = e.VideosInCart,
                     });
                 return query.ToArray();
@@ -76,7 +76,7 @@ namespace RetroVideoz.Services
                     .Select(e => new CartListItem
                     {
                         CartID = e.CartID,
-                        TransactionID = e.TransactionID,
+                        //TransactionID = e.TransactionID,
                         VideosInCart = e.VideosInCart
                     });
                 return query.ToArray();
@@ -111,7 +111,7 @@ namespace RetroVideoz.Services
                     .Single(e => e.CartID.Equals(model.CartID));
 
                 entity.CartID = model.CartID;
-                entity.TransactionID = model.TransactionID;
+                //entity.TransactionID = model.TransactionID;
                 return ctx.SaveChanges() == 1;
             }
         }

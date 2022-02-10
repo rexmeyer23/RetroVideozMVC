@@ -13,10 +13,10 @@ namespace RetroVideoz.Data
         [Key]
         public int CartID { get; set; }
         public ICollection<Video> VideosInCart { get; set; }
-        [Required]
-        [ForeignKey(nameof(Transaction))]
-        public int TransactionID { get; set; }
-        public Transaction Transaction { get; set; }
+        //[Required]
+        //[ForeignKey(nameof(Transaction))]
+        //public int TransactionID { get; set; }
+        //public Transaction Transaction { get; set; }
         public Cart()
         {
             VideosInCart = new HashSet<Video>();
@@ -25,5 +25,17 @@ namespace RetroVideoz.Data
         [ForeignKey(nameof(ApplicationUser))]
         public string UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+       
+    }
+    public class CartLineItem
+    {
+        public int CartItemID { get; set; }
+        public int TotalQuantity { get; set; }
+        //cart foreign key - one to many
+        //video foreign - one to one
+
+        //create controller
+        //add and remove from cart 
+        //
     }
 }

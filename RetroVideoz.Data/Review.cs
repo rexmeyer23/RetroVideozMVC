@@ -32,10 +32,7 @@ namespace RetroVideoz.Data
         [Required]
         public int VideoID { get; set; }
         public virtual Video Video { get; set; }
-        [ForeignKey(nameof(ApplicationUser))]
-      
-        public string UserID { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
-        //public Guid OwnerID { get; set; }
+        
+        public Guid OwnerID { get; set; }
     }
 }

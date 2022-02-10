@@ -22,7 +22,7 @@ namespace RetroVideoz.Services
                 WouldRecommend = model.WouldRecommend,
                 DateAdded = DateTime.Now,
                 VideoID = model.VideoID,
-                UserID = model.UserID,
+                //UserID = model.UserID,
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -91,26 +91,26 @@ namespace RetroVideoz.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<ReviewListItem> GetReviewsByUserID(string userID)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Reviews
-                    .Where(e => e.UserID == userID)
-                    .OrderBy(r => r.DateAdded)
-                    .Select(e => new ReviewListItem
-                    {
-                        //ReviewID = e.ReviewID,
-                        ReviewHeader = e.ReviewHeader,
-                        VideoTitle = e.Video.Title,
-                        StarRating = e.StarRating,
-                        DateAdded = e.DateAdded
-                    });
-                return query.ToArray();
-            }
-        }
+        //public IEnumerable<ReviewListItem> GetReviewsByUserID(string userID)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //            .Reviews
+        //            .Where(e => e.UserID == userID)
+        //            .OrderBy(r => r.DateAdded)
+        //            .Select(e => new ReviewListItem
+        //            {
+        //                //ReviewID = e.ReviewID,
+        //                ReviewHeader = e.ReviewHeader,
+        //                VideoTitle = e.Video.Title,
+        //                StarRating = e.StarRating,
+        //                DateAdded = e.DateAdded
+        //            });
+        //        return query.ToArray();
+        //    }
+        //}
         public ReviewDetail GetReviewByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -131,8 +131,8 @@ namespace RetroVideoz.Services
                         StarRating = entity.StarRating,
                         WouldRecommend = entity.WouldRecommend,
                         DateAdded = entity.DateAdded,
-                        UserID = entity.UserID,
-                        Username = entity.ApplicationUser.Username
+                        //UserID = entity.UserID,
+                        //Username = entity.ApplicationUser.Username
 
                     };
             }
