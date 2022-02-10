@@ -12,6 +12,10 @@ namespace RetroVideoz.Models
     {
         public int ReviewID { get; set; }
         [Required]
+        [Display(Name = "Video")]
+        public int VideoID { get; set; }
+        public string VideoTitle { get; set; }
+        [Required]
         [Display(Name = "Header")]
         public string ReviewHeader { get; set; }
         [Required]
@@ -27,13 +31,7 @@ namespace RetroVideoz.Models
         [Display(Name = "Date Review was Added")]
         public DateTime? DateAdded { get; set; }
         
-        [Display(Name = "User")]
-        public string UserID { get; set; }
-        public string Username { get; set; }
-        [Required]
-        [Display(Name = "Video")]
-        public int VideoID { get; set; }
-        public string VideoTitle { get; set; }
+       
       
        
     }
