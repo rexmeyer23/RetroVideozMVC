@@ -22,6 +22,8 @@ namespace RetroVideoz.Models
         [Required]
         [Display(Name = "Transaction Date")]
         public DateTime? TransactionDate { get; set; }
+        [Required, Display(Name = "Quantity Bought")]
+        public int QuantityBought { get; set; }
 
 
     }
