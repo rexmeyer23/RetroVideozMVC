@@ -15,10 +15,6 @@ namespace RetroVideoz.Models
         public string Title { get; set; }
         [Display(Name = "Year")]
         public int Year { get; set; }
-        [Display(Name = "Rating")]
-        public ContentRating Rating { get; set; }
-        [Display(Name = "Genre")]
-        public GenreType Genre { get; set; }
         [Display(Name = "Format")]
         public HomeVideoFormat Format { get; set; }
         [Display(Name = "Price")]

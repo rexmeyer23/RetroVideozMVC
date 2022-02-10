@@ -10,12 +10,13 @@ namespace RetroVideoz.Services
 {
     public class VideoService
     {
-    private readonly Guid _userID;
+        private readonly Guid _userID;
 
-    public VideoService(Guid userId)
-    {
-         _userID = userId;
+        public VideoService(Guid userId)
+        {
+            _userID = userId;
         }
+
         public bool CreateVideo(VideoCreate model)
         {
             var entity =
@@ -29,8 +30,9 @@ namespace RetroVideoz.Services
                     Genre = model.Genre,
                     Format = model.Format,
                     Price = model.Price,
-                        //Image = model.Image
-                    };
+                    Quantity = model.Quantity,
+                    //Image = model.Image
+                };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Videos.Add(entity);
@@ -55,6 +57,7 @@ namespace RetroVideoz.Services
                             Year = e.Year,
                             Format = e.Format,
                             Price = e.Price,
+                            Quantity = e.Quantity,
                         }
                         );
                 return query.ToArray();
@@ -103,7 +106,7 @@ namespace RetroVideoz.Services
                         Genre = entity.Genre,
                         Format = entity.Format,
                         Price = entity.Price,
-                        Image = entity.Image,
+                        Quantity = entity.Quantity,
                     };
             }
         }
@@ -122,18 +125,12 @@ namespace RetroVideoz.Services
                 entity.Genre = model.Genre;
                 entity.Format = model.Format;
                 entity.Price = model.Price;
-                entity.Image = model.Image;
+                entity.Quantity = model.Quantity;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        //method for buying a movie, essentially just updating the owner, 
-        //build edit method, call to transaction method,just call owner id
-        //public bool AddVideoToCart(Video model)
-        //{
 
-        //}
-        
         public bool DeleteVideo(int videoID)
         {
             using (var ctx = new ApplicationDbContext())
@@ -150,3 +147,4 @@ namespace RetroVideoz.Services
         }
     }
 }
+

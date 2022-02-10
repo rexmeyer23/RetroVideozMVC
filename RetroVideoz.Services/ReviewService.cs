@@ -11,6 +11,12 @@ namespace RetroVideoz.Services
 {
     public class ReviewService
     {
+        private readonly Guid _userID;
+        public ReviewService(Guid userID)
+        {
+            _userID = userID;
+        }
+
         public bool CreateReview(ReviewCreate model)
         {
             var entity = new Review()
@@ -38,6 +44,7 @@ namespace RetroVideoz.Services
                 var query =
                     ctx
                     .Reviews
+                    .Where(e => e.OwnerID == _userID)
                     .OrderBy(x => x.DateAdded)
                     .Select(review => new ReviewListItem
                     {
@@ -91,20 +98,19 @@ namespace RetroVideoz.Services
                 return query.ToArray();
             }
         }
-        //public IEnumerable<ReviewListItem> GetReviewsByUserID(string userID)
+        //public IEnumerable<ReviewListItem> GetReviewsByUserID(int reviewID)
         //{
         //    using (var ctx = new ApplicationDbContext())
         //    {
         //        var query =
         //            ctx
         //            .Reviews
-        //            .Where(e => e.UserID == userID)
+        //            .Where(e =>  e.OwnerID == _userID)
         //            .OrderBy(r => r.DateAdded)
         //            .Select(e => new ReviewListItem
         //            {
-        //                //ReviewID = e.ReviewID,
-        //                ReviewHeader = e.ReviewHeader,
         //                VideoTitle = e.Video.Title,
+        //                ReviewHeader = e.ReviewHeader,
         //                StarRating = e.StarRating,
         //                DateAdded = e.DateAdded
         //            });
@@ -118,8 +124,7 @@ namespace RetroVideoz.Services
                 var entity =
                     ctx
                     .Reviews
-                    .OrderBy(r => r.DateAdded)
-                    .Single(e => e.ReviewID == id);
+                    .Single(e => e.ReviewID == id && e.OwnerID == _userID);
                 return
                     new ReviewDetail
                     {
@@ -147,7 +152,7 @@ namespace RetroVideoz.Services
                 var entity =
                     ctx
                     .Reviews
-                    .Single(e => e.ReviewID == model.ReviewID);
+                    .Single(e => e.ReviewID == model.ReviewID && e.OwnerID == _userID);
                 entity.ReviewHeader = model.ReviewHeader;
                 entity.ReviewText = model.ReviewText;
                 entity.StarRating = model.StarRating;
@@ -165,7 +170,7 @@ namespace RetroVideoz.Services
                 var entity =
                     ctx
                     .Reviews
-                    .Single(e => e.ReviewID == reviewID);
+                    .Single(e => e.ReviewID == reviewID && e.OwnerID == _userID);
                 ctx.Reviews.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
