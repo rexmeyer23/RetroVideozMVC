@@ -30,9 +30,20 @@ namespace RetroVideoz.Data
     public class CartLineItem
     {
         public int CartItemID { get; set; }
+        [Required]
+        [Display(Name= "Total Quantity")]
         public int TotalQuantity { get; set; }
         //cart foreign key - one to many
+        [Required]
+        [ForeignKey(nameof(Cart))]
+        public int CartID { get; set; }
+        public virtual Cart Cart { get; set; }
         //video foreign - one to one
+        [Required]
+        [ForeignKey(nameof(Video))]
+        public int VideoID { get; set; }    
+        public virtual Video Video { get; set; }
+  
 
         //create controller
         //add and remove from cart 

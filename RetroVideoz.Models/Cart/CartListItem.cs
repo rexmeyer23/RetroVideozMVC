@@ -17,4 +17,19 @@ namespace RetroVideoz.Models
         public virtual Transaction Transaction { get; set; }
         public ICollection<Video> VideosInCart { get; set; }
     }
+
+    public class CartLineItemListed
+    {
+        public int CartItemID { get; set; }
+        [Required]
+        public int TotalQuantity { get; set; }
+        [Required]
+        [ForeignKey(nameof(Cart))]
+        public int CartID { get; set; }
+        public virtual Cart Cart { get; set; }
+        [Required]
+        [ForeignKey(nameof(Video))]
+        public int VideoID { get; set; }
+        public virtual Video Video { get; set; }
+    }
 }

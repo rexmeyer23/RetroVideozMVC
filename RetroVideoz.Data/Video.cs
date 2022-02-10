@@ -62,18 +62,20 @@ namespace RetroVideoz.Data
         [Required]
         [Display(Name = "Price")]
         public decimal Price { get; set; }
+        [Required, Display(Name = "Quantity")]
         public int Quantity { get; set; }
        
         [ForeignKey(nameof(Cart))]
         public int CartID { get; set; }
         public Cart Cart { get; set; }
         public ICollection<Review> ListOfReviews { get; set; }
-      
-       
 
+
+        //stretch goal
+        //adding image
         public byte[] Image { get; set; }
 
-        //adding image
+     
         public Guid OwnerID { get; set; }
 
         public Video()

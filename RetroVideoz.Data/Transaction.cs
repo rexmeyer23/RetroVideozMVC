@@ -19,6 +19,10 @@ namespace RetroVideoz.Data
         [Required]
         [Display(Name = "Transaction Date")]
         public DateTime? TransactionDate { get; set; }
+        
+        [Required, Display(Name = "Quantity Bought")]
+        public int QuantityBought { get; set; }
+
 
         //transaction line item, quantity bought
     }
