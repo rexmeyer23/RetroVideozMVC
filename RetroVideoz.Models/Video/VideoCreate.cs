@@ -32,13 +32,10 @@ namespace RetroVideoz.Models
         [Display(Name = "Price")]
         [Required]
         public decimal Price { get; set; }
-        public int CartID { get; set; }
+        //public int CartID { get; set; }
 
-        [Display(Name = "User")]
-        public Guid OwnerID { get; set; }
-        [Display(Name ="Video Image")]
-        public byte[] Image { get; set; }   
-     
+        [Required, Display(Name = "Quantity")]
+        public int Quantity { get; set; }
 
 
 

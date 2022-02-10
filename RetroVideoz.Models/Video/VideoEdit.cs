@@ -25,9 +25,7 @@ namespace RetroVideoz.Models
         public HomeVideoFormat Format { get; set; }
         [Display(Name = "Price")]
         public decimal Price { get; set; }
-        [Display(Name = "Video Image")]
-        public byte[] Image { get; set; }
-        [Display(Name = "User")]
-        public Guid OwnerID { get; set; } //save user who is logged, save guid to user, and use to update other guid
+        [Required, Display(Name = "Quantity")]
+        public int Quantity { get; set; }
     }
 }
