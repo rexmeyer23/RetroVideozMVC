@@ -10,18 +10,12 @@ namespace RetroVideoz.Services
 {
     public class CartServices
     {
-        public string CartID { get; set; }
-        //private VideoService _db;
-        //private CartServices _ds;
         public bool CreateCart(CartCreate model)
         {
             var entity =
                 new Cart()
                 {
-                    CartID = model.CartID,
-                    UserID = model.UserID,
-                    //TransactionID = model.TransactionID,
-                    VideosInCart = model.VideosInCart,
+                   
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -41,66 +35,48 @@ namespace RetroVideoz.Services
                     {
                         CartID = cart.CartID,
                         //TransactionID = cart.TransactionID,
-                        VideosInCart = cart.VideosInCart,
                     };
                     list.Add(carts);
                 }
                 return list;
             }
         }
-        public IEnumerable<CartListItem> GetCartsByID(int cartID)
+        public IEnumerable<VideoCartItems> GetCartByID(int cartID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Carts
+                    .Videos
                     .Where(e => e.CartID == cartID)
-                    .Select(e => new CartListItem
+                    .OrderBy(x => x.Title)
+                    .Select(v => new VideoCartItems
                     {
-                        CartID = e.CartID,
-                        //TransactionID = e.TransactionID,
-                        VideosInCart = e.VideosInCart,
+                        Title = v.Title,
+                        Price = v.Price,
+                        Quantity = v.Quantity
                     });
                 return query.ToArray();
             }
         }
-        public IEnumerable<CartListItem> GetCartsByUser(string userID)
+        public IEnumerable<VideoCartItems> GetCartsByUser(string userID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Carts
-                    .Where(e => e.UserID == userID)
-                    .Select(e => new CartListItem
+                    .Videos
+                    .Where(e => e.Cart.UserID == userID)
+                    .OrderBy(x => x.Title)
+                    .Select(v => new VideoCartItems
                     {
-                        CartID = e.CartID,
-                        //TransactionID = e.TransactionID,
-                        VideosInCart = e.VideosInCart
+                        Title = v.Title,
+                        Price = v.Price,
+                        Quantity = v.Quantity
                     });
                 return query.ToArray();
             }
         }
-        //add following method to controller
-        //public bool AddVideoToCart(int videoID)
-        //{
-        //    var cartItem = _db.GetVideoByID(videoID);
-        //    if (cartItem != null)
-        //    {
-        //        cartItem.Quantity
-        //    }
-        //    else
-        //    {
-        //        _ds.
-        //    }
-
-        //    //recall video database
-        //    //select video
-        //    //call cart
-        //    //add item to cart
-
-        //}
         public bool UpdateCart(CartEdit model)
         {
             using(var ctx = new ApplicationDbContext())

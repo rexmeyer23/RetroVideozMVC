@@ -68,8 +68,8 @@ namespace RetroVideoz.Data
         [ForeignKey(nameof(Cart))]
         public int CartID { get; set; }
         public Cart Cart { get; set; }
-        public ICollection<Review> ListOfReviews { get; set; }
-
+      
+        //public virtual List<Reviews> ListOfReviews {get; set; }
 
         //stretch goal
         //adding image
@@ -78,9 +78,6 @@ namespace RetroVideoz.Data
      
         public Guid OwnerID { get; set; }
 
-        public Video()
-        {
-            ListOfReviews = new HashSet<Review>();
-        }
+       
     }
 }

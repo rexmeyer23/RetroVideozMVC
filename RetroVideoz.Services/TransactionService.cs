@@ -19,6 +19,7 @@ namespace RetroVideoz.Services
                     TransactionID = model.TransactionID,
                     CartID = model.CartID,
                     TransactionDate = DateTime.Now,
+                    QuantityBought = model.QuantityBought,
                    
                 };
             using (var ctx = new ApplicationDbContext())
@@ -46,20 +47,31 @@ namespace RetroVideoz.Services
                 return list;
             }
         }
-        public IEnumerable<TransactionListItem> GetTransactionByID(int transactionID)
+        public TransactionDetail GetTransactionByID(int transactionID)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var entity =
                     ctx
                     .Transactions
-                    .Where(e => e.TransactionID == transactionID)
-                    .Select(e => new TransactionListItem
+                    .Single(e => e.TransactionID == transactionID);
+                    return new TransactionDetail
                     {
-                        TransactionID = e.TransactionID,
-                        TransactionDate = e.TransactionDate
-                    });
-                return query.ToList();
+                        QuantityBought = entity.QuantityBought,
+                        TransactionDate = entity.TransactionDate,
+                    };
+            }
+        }
+        public bool UpdateTransaction(TransactionEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Transactions
+                    .Single(e => e.TransactionID == model.TransactionID);
+
+                return ctx.SaveChanges() == 1;
             }
         }
         public bool DeleteTransaction(int transactionID)
@@ -74,18 +86,7 @@ namespace RetroVideoz.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        //public bool UpdateTransaction(TransactionEdit model)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //            .Transactions
-        //            .Single(e => e.TransactionID == model.TransactionID);
 
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
 
     }
 }

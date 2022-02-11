@@ -9,16 +9,7 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Models
 {
-    public class CartDetail
-    {
-        public int CartID { get; set; }
-        //[Required, ForeignKey(nameof(Transaction))]
-        //public int TransactionID { get; set; }
-        //public virtual Transaction Transaction { get; set; }
-        public string UserID { get; set; }
-    }
-
-    public class CartLineItemDetail
+    public class CartLineItemCreate
     {
         public int CartItemID { get; set; }
         [Required]
@@ -31,5 +22,7 @@ namespace RetroVideoz.Models
         [ForeignKey(nameof(Video))]
         public int VideoID { get; set; }
         public virtual Video Video { get; set; }
+
+
     }
 }

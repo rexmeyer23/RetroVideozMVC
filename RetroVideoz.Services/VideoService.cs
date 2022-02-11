@@ -63,30 +63,6 @@ namespace RetroVideoz.Services
                 return query.ToArray();
             }
         }
-        //public IEnumerable<VideoListItem> GetVideosByUserID(string userID)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //            .Videos
-        //            .Where(e => e.OwnerID == userID)
-        //            .OrderBy(v => v.Title)
-        //            .Select(
-        //                e =>
-        //                new VideoListItem
-        //                {
-        //                    VideoID = e.VideoID,
-        //                    Title = e.Title,
-        //                    Year = e.Year,
-        //                    Format = e.Format,
-        //                    Price = e.Price,
-        //                    Image = e.Image,
-        //                }
-        //                );
-        //        return query.ToArray();
-        //    }
-        //}
         public VideoDetail GetVideoByID(int id)
         {
             using (var ctx = new ApplicationDbContext())

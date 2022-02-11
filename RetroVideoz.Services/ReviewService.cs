@@ -98,25 +98,6 @@ namespace RetroVideoz.Services
                 return query.ToArray();
             }
         }
-        //public IEnumerable<ReviewListItem> GetReviewsByUserID(int reviewID)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //            .Reviews
-        //            .Where(e =>  e.OwnerID == _userID)
-        //            .OrderBy(r => r.DateAdded)
-        //            .Select(e => new ReviewListItem
-        //            {
-        //                VideoTitle = e.Video.Title,
-        //                ReviewHeader = e.ReviewHeader,
-        //                StarRating = e.StarRating,
-        //                DateAdded = e.DateAdded
-        //            });
-        //        return query.ToArray();
-        //    }
-        //}
         public ReviewDetail GetReviewByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -128,9 +109,7 @@ namespace RetroVideoz.Services
                 return
                     new ReviewDetail
                     {
-                        ReviewID = entity.ReviewID,
                         ReviewHeader = entity.ReviewHeader,
-                        VideoID = entity.VideoID,
                         VideoTitle = entity.Video.Title,
                         ReviewText = entity.ReviewText,
                         StarRating = entity.StarRating,
@@ -157,7 +136,6 @@ namespace RetroVideoz.Services
                 entity.ReviewText = model.ReviewText;
                 entity.StarRating = model.StarRating;
                 entity.WouldRecommend = model.WouldRecommend;
-                entity.VideoID = model.VideoID;
 
                 return ctx.SaveChanges() == 1;
             }

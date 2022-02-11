@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartLineItem\CartLineItemCreate.cs" />
     <Compile Include="Cart\CartCreate.cs" />
     <Compile Include="Cart\CartDetail.cs" />
     <Compile Include="Cart\CartEdit.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Transaction\TransactionDetail.cs" />
     <Compile Include="Transaction\TransactionEdit.cs" />
     <Compile Include="Transaction\TransactionListItem.cs" />
+    <Compile Include="Video\VideoCartItems.cs" />
     <Compile Include="Video\VideoCreate.cs" />
     <Compile Include="Video\VideoDetail.cs" />
     <Compile Include="Video\VideoEdit.cs" />

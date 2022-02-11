@@ -15,7 +15,7 @@ namespace RetroVideoz.WebMVC.Controllers
 
     public class VideoController : Controller
     {
-        // GET: Video -- list videos in admin database
+        // GET: Videos -- list videos in admin database
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -25,7 +25,7 @@ namespace RetroVideoz.WebMVC.Controllers
             return View(model);
         }
 
-        // GET: Video Details
+        // GET: Video/Details/{id}
         public ActionResult Details(int id)
         {
             var service = CreateVideoService();
@@ -34,12 +34,12 @@ namespace RetroVideoz.WebMVC.Controllers
             return View(model);
         }
 
-        //GET: Create Video 
+        //GET: Video/Create
         public ActionResult Create()
         {
             return View();
         }
-        //POST: Create Video
+        //POST: Video/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(VideoCreate model)
@@ -55,7 +55,7 @@ namespace RetroVideoz.WebMVC.Controllers
             return View(model);
         }
 
-        //GET: Update Video
+        //GET: Video/Edit/{id}
         public ActionResult Edit(int id)
         {
             var service = CreateVideoService();
@@ -76,7 +76,7 @@ namespace RetroVideoz.WebMVC.Controllers
             return View(model);
         }
 
-        //POST: Update Video
+        //POST: Video/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, VideoEdit model)
@@ -95,7 +95,7 @@ namespace RetroVideoz.WebMVC.Controllers
             ModelState.AddModelError("", "Video was not updated.");
             return View(model);
         }
-        //GET: Delete Video
+        //GET: Video/Delete/{id}
         [ActionName("Delete")]
         public ActionResult Delete (int id)
         {
@@ -103,7 +103,7 @@ namespace RetroVideoz.WebMVC.Controllers
             var model = svc.GetVideoByID(id);
             return View(model);
         }
-        //POST: Delete Video
+        //POST: Video/Delete/{id}
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
