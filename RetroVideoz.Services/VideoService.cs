@@ -23,6 +23,7 @@ namespace RetroVideoz.Services
                 new Video()
                 {
                     OwnerID = _userID,
+                    VideoID = model.VideoID,
                     Title = model.Title,
                     Description = model.Description,
                     Year = model.Year,
@@ -52,7 +53,7 @@ namespace RetroVideoz.Services
                         e =>
                         new VideoListItem
                         {
-                            VideoID = e.VideoID,
+                            //VideoID = e.VideoID,
                             Title = e.Title,
                             Year = e.Year,
                             Format = e.Format,
@@ -74,7 +75,7 @@ namespace RetroVideoz.Services
                 return
                     new VideoDetail
                     {
-                        VideoID = entity.VideoID,
+                        //VideoID = entity.VideoID,
                         Title = entity.Title,
                         Description = entity.Description,
                         Year = entity.Year,

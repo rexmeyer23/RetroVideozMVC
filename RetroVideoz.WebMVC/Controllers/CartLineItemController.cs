@@ -11,7 +11,7 @@ namespace RetroVideoz.WebMVC.Controllers
 {
     public class CartLineItemController : Controller
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContext _context = new ApplicationDbContext();
         // GET: CartLineItem
         public ActionResult Index()
         {

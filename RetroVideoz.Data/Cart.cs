@@ -20,7 +20,7 @@ namespace RetroVideoz.Data
         //{
         //    VideosInCart = new HashSet<Video>();
         //}
-        [Required]
+        //[Required]
         public decimal TotalPrice { get; set; } //add method to calculate total price
         [Required]
         public ICollection<CartLineItem> CartLineItems { get; set; }
@@ -30,32 +30,32 @@ namespace RetroVideoz.Data
         public virtual ApplicationUser ApplicationUser { get; set; }
        
     }
-    public class CartLineItem
-    {
-        [Key]
-        [Required]
-        public int CartItemID { get; set; }
-        [Required]
-        [Display(Name= "Total Quantity")]
-        public decimal TotalQuantity { get; set; }
-        //cart foreign key - one to many
-        [Required]
-        [ForeignKey(nameof(Cart))]
-        public int CartID { get; set; }
-        public virtual Cart Cart { get; set; }
-        //video foreign - one to one
-        [Required]
-        [ForeignKey(nameof(Video))]
-        public int VideoID { get; set; }    
-        public virtual Video Video { get; set; }
-        public decimal CartLineItemPrice { get
-            {
-               return Video.Price * TotalQuantity;
-            } }
+    //public class CartLineItem
+    //{
+    //    [Key]
+    //    [Required]
+    //    public int CartItemID { get; set; }
+    //    [Required]
+    //    [Display(Name= "Total Quantity")]
+    //    public decimal TotalQuantity { get; set; }
+    //    //cart foreign key - one to many
+    //    [Required]
+    //    [ForeignKey(nameof(Cart))]
+    //    public int CartID { get; set; }
+    //    public virtual Cart Cart { get; set; }
+    //    //video foreign - one to one
+    //    [Required]
+    //    [ForeignKey(nameof(Video))]
+    //    public int VideoID { get; set; }    
+    //    public virtual Video Video { get; set; }
+    //    public decimal CartLineItemPrice { get
+    //        {
+    //           return Video.Price * TotalQuantity;
+    //        } }
   
 
-        //create controller
-        //add and remove from cart 
-        //
-    }
+    //    //create controller
+    //    //add and remove from cart 
+    //    //
+    //}
 }

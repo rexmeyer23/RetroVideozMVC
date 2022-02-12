@@ -19,7 +19,7 @@ namespace RetroVideoz.Data
         [Required]
         [Display(Name = "Text")]
         public string ReviewText { get; set; }
-        [Required]
+        [Required, Range(0, 5)]
         [Display(Name = "Star Rating")]
         public decimal StarRating { get; set; }
         [Required]
@@ -30,7 +30,7 @@ namespace RetroVideoz.Data
         public DateTime? DateAdded { get; set; }
         [ForeignKey(nameof(Video))]
         [Required]
-        public int VideoID { get; set; }
+        public int? VideoID { get; set; }
         public virtual Video Video { get; set; }
         
         public Guid OwnerID { get; set; }

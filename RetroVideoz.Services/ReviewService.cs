@@ -21,6 +21,7 @@ namespace RetroVideoz.Services
         {
             var entity = new Review()
             {
+                OwnerID = _userID,
                 ReviewID = model.ReviewID,
                 ReviewHeader = model.ReviewHeader,
                 ReviewText = model.ReviewText,

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RetroVideoz.Models.CartLineItemListed>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CartItemID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartItemID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoID)
+        </td>
+        <td>
+       
+            @Html.ActionLink("Delete", "Delete", new {id=item.CartItemID })
+        </td>
+    </tr>
+}
+
+</table>

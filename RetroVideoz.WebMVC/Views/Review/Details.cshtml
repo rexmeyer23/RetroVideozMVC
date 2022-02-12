@@ -1,0 +1,82 @@
+﻿@model RetroVideoz.Models.ReviewDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReviewDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StarRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StarRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WouldRecommend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WouldRecommend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { Model.ReviewID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

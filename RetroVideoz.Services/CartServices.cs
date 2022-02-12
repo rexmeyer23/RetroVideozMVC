@@ -15,7 +15,7 @@ namespace RetroVideoz.Services
             var entity =
                 new Cart()
                 {
-                   
+                 UserID = model.UserID,  
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -86,7 +86,7 @@ namespace RetroVideoz.Services
                     .Carts
                     .Single(e => e.CartID.Equals(model.CartID));
 
-                entity.CartID = model.CartID;
+                entity.UserID = model.UserID;
                 //entity.TransactionID = model.TransactionID;
                 return ctx.SaveChanges() == 1;
             }

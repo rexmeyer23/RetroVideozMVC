@@ -12,7 +12,7 @@ using System.Web.Mvc;
 namespace RetroVideoz.WebMVC.Controllers
 {
 
-
+    [Authorize]
     public class VideoController : Controller
     {
         // GET: Videos -- list videos in admin database
