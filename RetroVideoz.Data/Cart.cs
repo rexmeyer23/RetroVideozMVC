@@ -32,6 +32,8 @@ namespace RetroVideoz.Data
     }
     public class CartLineItem
     {
+        [Key]
+        [Required]
         public int CartItemID { get; set; }
         [Required]
         [Display(Name= "Total Quantity")]
@@ -48,7 +50,7 @@ namespace RetroVideoz.Data
         public virtual Video Video { get; set; }
         public decimal CartLineItemPrice { get
             {
-               return this.Video.Price * this.TotalQuantity;
+               return Video.Price * TotalQuantity;
             } }
   
 

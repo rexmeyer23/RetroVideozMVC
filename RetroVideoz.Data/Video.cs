@@ -65,9 +65,9 @@ namespace RetroVideoz.Data
         [Required, Display(Name = "Quantity")]
         public int Quantity { get; set; }
        
-        [ForeignKey(nameof(CartLineItem))]
-        public int CartItemID { get; set; }
-        public CartLineItem CartLineItem { get; set; }
+        //[ForeignKey(nameof(CartLineItem))]
+        //public int CartItemID { get; set; }
+        //public CartLineItem CartLineItem { get; set; }
       
         public virtual List<Review> ListOfReviews {get; set; }
 
