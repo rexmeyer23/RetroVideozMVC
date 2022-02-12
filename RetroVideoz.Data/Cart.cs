@@ -21,6 +21,10 @@ namespace RetroVideoz.Data
         //    VideosInCart = new HashSet<Video>();
         //}
         [Required]
+        public decimal TotalPrice { get; set; } //add method to calculate total price
+        [Required]
+        public ICollection<CartLineItem> CartLineItems { get; set; }
+        [Required]
         [ForeignKey(nameof(ApplicationUser))]
         public string UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
@@ -31,7 +35,7 @@ namespace RetroVideoz.Data
         public int CartItemID { get; set; }
         [Required]
         [Display(Name= "Total Quantity")]
-        public int TotalQuantity { get; set; }
+        public decimal TotalQuantity { get; set; }
         //cart foreign key - one to many
         [Required]
         [ForeignKey(nameof(Cart))]
@@ -42,6 +46,10 @@ namespace RetroVideoz.Data
         [ForeignKey(nameof(Video))]
         public int VideoID { get; set; }    
         public virtual Video Video { get; set; }
+        public decimal CartLineItemPrice { get
+            {
+               return this.Video.Price * this.TotalQuantity;
+            } }
   
 
         //create controller

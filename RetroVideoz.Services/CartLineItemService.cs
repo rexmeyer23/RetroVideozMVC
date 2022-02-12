@@ -26,6 +26,23 @@ namespace RetroVideoz.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<VideoCartItems> GetCartLineItemByID(int cartLineItemID)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .CartLineItems
+                    .Where(e => e.CartItemID == cartLineItemID)
+                    .Select(v => new VideoCartItems
+                    {
+                        Title = v.Video.Title,
+                        Price = v.Video.Price,
+                        Quantity = v.Video.Quantity
+                    });
+                return query.ToArray();
+            }
+        }
         public bool DeleteCartLineItem(int cartLineItemID)
         {
             using (var ctx = new ApplicationDbContext())

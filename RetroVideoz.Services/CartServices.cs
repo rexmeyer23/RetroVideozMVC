@@ -47,14 +47,14 @@ namespace RetroVideoz.Services
             {
                 var query =
                     ctx
-                    .Videos
+                    .CartLineItems
                     .Where(e => e.CartID == cartID)
-                    .OrderBy(x => x.Title)
+                    .OrderBy(x => x.Video.Title)
                     .Select(v => new VideoCartItems
                     {
-                        Title = v.Title,
-                        Price = v.Price,
-                        Quantity = v.Quantity
+                        Title = v.Video.Title,
+                        Price = v.Video.Price,
+                        Quantity = v.Video.Quantity
                     });
                 return query.ToArray();
             }
@@ -65,14 +65,14 @@ namespace RetroVideoz.Services
             {
                 var query =
                     ctx
-                    .Videos
+                    .CartLineItems
                     .Where(e => e.Cart.UserID == userID)
-                    .OrderBy(x => x.Title)
+                    .OrderBy(x => x.Video.Title)
                     .Select(v => new VideoCartItems
                     {
-                        Title = v.Title,
-                        Price = v.Price,
-                        Quantity = v.Quantity
+                        Title = v.Video.Title,
+                        Price = v.Video.Price,
+                        Quantity = v.Video.Quantity
                     });
                 return query.ToArray();
             }
