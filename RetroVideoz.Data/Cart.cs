@@ -12,15 +12,6 @@ namespace RetroVideoz.Data
     {
         [Key]
         public int CartID { get; set; }
-        //[Required]
-        //[ForeignKey(nameof(Transaction))]
-        //public int TransactionID { get; set; }
-        //public Transaction Transaction { get; set; }
-        //public Cart()
-        //{
-        //    VideosInCart = new HashSet<Video>();
-        //}
-        //[Required]
         public decimal TotalPrice { get; set; } //add method to calculate total price
         [Required]
         public ICollection<CartLineItem> CartLineItems { get; set; }

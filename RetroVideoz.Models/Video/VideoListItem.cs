@@ -10,6 +10,7 @@ namespace RetroVideoz.Models
 {
     public class VideoListItem
     {
+        private List<VideoListItem> _list;
         public int VideoID { get; set; }
         [Display(Name = "Title")]
         public string Title { get; set; }

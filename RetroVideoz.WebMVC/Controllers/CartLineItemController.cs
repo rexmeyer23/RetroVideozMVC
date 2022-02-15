@@ -11,7 +11,7 @@ namespace RetroVideoz.WebMVC.Controllers
 {
     public class CartLineItemController : Controller
     {
-        private ApplicationDbContext _context = new ApplicationDbContext();
+
         // GET: CartLineItem
         public ActionResult Index()
         {
@@ -26,28 +26,24 @@ namespace RetroVideoz.WebMVC.Controllers
             return View();
         }
 
-        //POST: CartLineItem/Create
+        // POST: CartLineItem/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CartLineItemCreate model)
-        {
-            if(!ModelState.IsValid) return View(model);
-            var service = new CartLineItemService();
-            Video video = _context.Videos.Find(model.VideoID);
-            if (model.TotalQuantity <= video.Quantity)
-            {
-                video.Quantity -= model.TotalQuantity;
-                if (service.CreateCartLineItem(model))
-                {
-                    TempData["Save Result"] = "Item has been added to your cart.";
-                    return RedirectToAction("Index");
-                }
-              
-            }
-            ModelState.AddModelError("", "Item was not added to your cart.");
-            return View(model);
-        }
-      
+        //public ActionResult Create(int videoID, CartLineItemCreate model)
+        //{
+        //    if (!ModelState.IsValid) return View(model);
+        //    var service = new CartLineItemService();
+        //    if (service.CreateCartLineItem(videoID, model))
+        //    {
+        //        TempData["Save Result"] = "Item has been added to your cart.";
+        //        return RedirectToAction("Index");
+        //    }
+        //    ModelState.AddModelError("", "Item was not added to your cart.");
+        //    return View(model);
+        //}
+
+        //html action link need to pass in video id to url
+
         //GET: CartLineItem/Delete/{id}
         public ActionResult Delete(int id)
         {
@@ -55,7 +51,8 @@ namespace RetroVideoz.WebMVC.Controllers
             var cartItem = service.GetCartLineItemByID(id);
             return View(cartItem);
         }
-        //POST: CartLineItem/Delete/{id}
+        //POST: CartLineItem/Delete/{id
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
@@ -66,5 +63,26 @@ namespace RetroVideoz.WebMVC.Controllers
             return RedirectToAction("Index");
 
         }
+        //public ActionResult BuyVideo(int id)
+        //{
+        //    var service = new VideoService();
+        //    var videoItem = service.GetVideoByID(id);
+        //    var video = _context.Videos.Find(id);
+        //    VideoDetail videoListItem = new VideoDetail();
+        //    if (Session["cart"] == null)
+        //    {
+        //        List<CartLineItem> cart = new List<CartLineItem>();
+        //        cart.Add(new CartLineItem { Video = service.GetVideoByID(id), TotalQuantity = 1 });
+        //    }
+        //}
+        //    public ActionResult RemoveFromCart(int id)
+        //    {
+        //        List<CartLineItem> service =  (List<CartLineItem>) Session["cart"];
+        //    }
+        //}
+        //private int isExist(int id)
+        //{
+        //    List<CartLineItem> cartLine = (List<CartLineItem>)Session["cart"];
+        //}
     }
 }

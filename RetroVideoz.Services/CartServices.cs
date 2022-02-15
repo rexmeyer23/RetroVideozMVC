@@ -15,7 +15,10 @@ namespace RetroVideoz.Services
             var entity =
                 new Cart()
                 {
-                 UserID = model.UserID,  
+                  CartID = model.CartID,
+                 UserID = model.UserID,
+                 TotalPrice = model.TotalPrice,
+
                 };
             using (var ctx = new ApplicationDbContext())
             {

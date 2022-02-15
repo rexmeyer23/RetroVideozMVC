@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using RetroVideoz.Data;
 using RetroVideoz.Models;
 using RetroVideoz.Services;
 using System;
@@ -114,6 +115,7 @@ namespace RetroVideoz.WebMVC.Controllers
             TempData["Save Result"] = "Video was not deleted";
             return RedirectToAction("Index");
         }
+    
         private VideoService CreateVideoService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());

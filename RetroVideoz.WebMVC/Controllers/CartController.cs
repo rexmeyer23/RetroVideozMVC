@@ -1,4 +1,5 @@
-﻿using RetroVideoz.Models;
+﻿using RetroVideoz.Data;
+using RetroVideoz.Models;
 using RetroVideoz.Services;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,17 @@ namespace RetroVideoz.WebMVC.Controllers
 {
     public class CartController : Controller
     {
+        //private readonly VideoService _videoService;
+        //private readonly ShoppingCart _shoppingCart;
+        //public async ActionResult AddVideoItemToCart(int id)
+        //{
+        //    Video item =  _videoService.GetVideoByID(id);
+        //    if(item != null)
+        //    {
+        //        _shoppingCart.AddVideoToCart(item);
+        //    }
+        //    return RedirectToAction(nameof(Cart));
+        //} 
         // GET: Cart
         public ActionResult Index()
         {
@@ -92,5 +104,7 @@ namespace RetroVideoz.WebMVC.Controllers
             TempData["Save Result"] = "Cart was not deleted.";
             return RedirectToAction("Index");
         }
+
+        
     }
 }

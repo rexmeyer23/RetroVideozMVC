@@ -12,6 +12,7 @@ namespace RetroVideoz.Models
     public class CartCreate
     {
         public int CartID { get; set; }
+        public decimal TotalPrice { get; set; }
 
         [Required, ForeignKey(nameof(ApplicationUser))]
         public string UserID { get; set; }

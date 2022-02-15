@@ -8,20 +8,31 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Services
 {
+    //private ApplicationDBContext context = new ApplicationDBContext();
+    
     public class CartLineItemService
     {
-        public bool CreateCartLineItem(CartLineItemCreate model)
+        public bool CreateCartLineItem(CartLineItemCreate model, int videoID)
         {
-            var entity =
+            Video video;
+            using (var ctx = new ApplicationDbContext())
+            {
+                video = ctx.Videos.Find(videoID);
+                video.Quantity -= model.TotalQuantity;
+                ctx.SaveChanges();
+            }
+         
+                var entity =
                 new CartLineItem()
                 {
                     CartItemID = model.CartItemID,
                     TotalQuantity = model.TotalQuantity,
                     Cart = model.Cart,
-                    Video = model.Video,
+                    Video = video,
                 };
             using (var ctx = new ApplicationDbContext())
             {
+             
                 ctx.CartLineItems.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
