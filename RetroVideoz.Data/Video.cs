@@ -39,7 +39,6 @@ namespace RetroVideoz.Data
     public class Video
     {
         [Key]
-        [Required]
         public int VideoID { get; set; }
         [Required]
         [Display(Name = "Movie")]
@@ -64,12 +63,6 @@ namespace RetroVideoz.Data
         public decimal Price { get; set; }
         [Required, Display(Name = "Quantity")]
         public int Quantity { get; set; }
-       
-        //[ForeignKey(nameof(CartLineItem))]
-        //public int CartItemID { get; set; }
-        //public CartLineItem CartLineItem { get; set; }
-      
-        public virtual List<Review> ListOfReviews {get; set; }
 
         //stretch goal
         //adding image

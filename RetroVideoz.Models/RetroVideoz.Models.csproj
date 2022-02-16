@@ -67,10 +67,6 @@
     <Compile Include="Review\ReviewDetail.cs" />
     <Compile Include="Review\ReviewEdit.cs" />
     <Compile Include="Review\ReviewListItem.cs" />
-    <Compile Include="Transaction\TransactionCreate.cs" />
-    <Compile Include="Transaction\TransactionDetail.cs" />
-    <Compile Include="Transaction\TransactionEdit.cs" />
-    <Compile Include="Transaction\TransactionListItem.cs" />
     <Compile Include="Video\VideoCartItems.cs" />
     <Compile Include="Video\VideoCreate.cs" />
     <Compile Include="Video\VideoDetail.cs" />

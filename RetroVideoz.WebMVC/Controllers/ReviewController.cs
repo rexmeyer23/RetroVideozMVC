@@ -58,6 +58,7 @@ namespace RetroVideoz.WebMVC.Controllers
             var model =
                 new ReviewEdit
                 {
+                    ReviewID = id,
                     ReviewHeader = detail.ReviewHeader,
                     ReviewText = detail.ReviewText,
                     StarRating = detail.StarRating,

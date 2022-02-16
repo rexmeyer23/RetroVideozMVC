@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RetroVideoz.Models.ReviewCreate>
+﻿@model IEnumerable<RetroVideoz.Models.ReviewListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -18,19 +18,13 @@
             @Html.DisplayNameFor(model => model.ReviewHeader)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReviewText)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.StarRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WouldRecommend)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateAdded)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VideoID)
+            @Html.DisplayNameFor(model => model.Video)
         </th>
         <th></th>
     </tr>
@@ -44,19 +38,13 @@
             @Html.DisplayFor(modelItem => item.ReviewHeader)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ReviewText)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.StarRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WouldRecommend)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateAdded)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.VideoID)
+            @Html.DisplayFor(modelItem => item.VideoTitle)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |

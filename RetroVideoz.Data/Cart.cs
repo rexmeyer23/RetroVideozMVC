@@ -12,14 +12,28 @@ namespace RetroVideoz.Data
     {
         [Key]
         public int CartID { get; set; }
-        public decimal TotalPrice { get; set; } //add method to calculate total price
-        [Required]
-        public ICollection<CartLineItem> CartLineItems { get; set; }
+        public decimal TotalPrice { get { return GetTotalPrice(); } set { TotalPrice = value; } } //add method to calculate total price
+      
         [Required]
         [ForeignKey(nameof(ApplicationUser))]
         public string UserID { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
        
+        public decimal GetTotalPrice()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            List<CartLineItem> list = context.CartLineItems.ToList();
+            decimal totalPrice = 0;
+            foreach(CartLineItem line in list)
+            {
+                if(line.CartID == CartID)
+                {
+                   totalPrice += line.CartLineItemPrice;
+                }
+              
+            }
+            return totalPrice;
+        }
     }
     //public class CartLineItem
     //{

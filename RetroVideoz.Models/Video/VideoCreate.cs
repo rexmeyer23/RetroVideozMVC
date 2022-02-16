@@ -10,7 +10,7 @@ namespace RetroVideoz.Models
 {
     public class VideoCreate
     {
-        public int VideoID { get; set; }
+   
         [Display(Name = "Title")]
         [Required]
         public string Title { get; set; }

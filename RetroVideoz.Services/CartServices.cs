@@ -17,7 +17,7 @@ namespace RetroVideoz.Services
                 {
                   CartID = model.CartID,
                  UserID = model.UserID,
-                 TotalPrice = model.TotalPrice,
+                TotalPrice = model.TotalPrice,
 
                 };
             using (var ctx = new ApplicationDbContext())

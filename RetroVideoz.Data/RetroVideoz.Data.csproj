@@ -58,13 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cart.cs" />
-    <Compile Include="CartItem.cs" />
     <Compile Include="CartLineItem.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
-    <Compile Include="ShoppingCart.cs" />
-    <Compile Include="Transaction.cs" />
     <Compile Include="Video.cs" />
   </ItemGroup>
   <ItemGroup>

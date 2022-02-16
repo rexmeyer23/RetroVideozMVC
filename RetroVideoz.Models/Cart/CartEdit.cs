@@ -12,9 +12,7 @@ namespace RetroVideoz.Models
     public class CartEdit
     {
         public int CartID { get; set; }
-        [Required,ForeignKey(nameof(Transaction))]
-        public int TransactionID { get; set; }
-        public virtual Transaction Transaction { get; set; }
+     
         public string UserID { get; set; }
 
     }

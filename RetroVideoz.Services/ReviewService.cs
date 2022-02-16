@@ -22,7 +22,6 @@ namespace RetroVideoz.Services
             var entity = new Review()
             {
                 OwnerID = _userID,
-                ReviewID = model.ReviewID,
                 ReviewHeader = model.ReviewHeader,
                 ReviewText = model.ReviewText,
                 StarRating = model.StarRating,
@@ -49,7 +48,7 @@ namespace RetroVideoz.Services
                     .OrderBy(x => x.DateAdded)
                     .Select(review => new ReviewListItem
                     {
-
+                        ReviewID = review.ReviewID,
                         ReviewHeader = review.ReviewHeader,
                         VideoTitle = review.Video.Title,
                         //ReviewText = review.ReviewText,
@@ -71,7 +70,7 @@ namespace RetroVideoz.Services
                     .OrderBy(r => r.DateAdded)
                     .Select(e => new ReviewListItem
                     {
-                        //ReviewID = e.ReviewID,
+                        ReviewID = e.ReviewID,
                         ReviewHeader = e.ReviewHeader,
                        VideoTitle = e.Video.Title,
                         StarRating = e.StarRating,
@@ -90,7 +89,7 @@ namespace RetroVideoz.Services
                     .Where(e => e.Video.VideoID == videoID)
                     .OrderBy(r => r.DateAdded)
                     .Select(e => new ReviewListItem
-                    {
+                    {ReviewID = e.ReviewID,
                         ReviewHeader = e.ReviewHeader,
                         VideoTitle = e.Video.Title,
                         StarRating = e.StarRating,
@@ -110,6 +109,7 @@ namespace RetroVideoz.Services
                 return
                     new ReviewDetail
                     {
+                        ReviewID = entity.ReviewID,
                         ReviewHeader = entity.ReviewHeader,
                         VideoTitle = entity.Video.Title,
                         ReviewText = entity.ReviewText,

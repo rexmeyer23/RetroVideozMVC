@@ -27,10 +27,10 @@ namespace RetroVideoz.Data
         public bool WouldRecommend { get; set; }
         [Required]
         [Display(Name = "Date Added")]
-        public DateTime? DateAdded { get; set; }
+        public DateTime DateAdded { get; set; }
         [ForeignKey(nameof(Video))]
         [Required]
-        public int? VideoID { get; set; }
+        public int VideoID { get; set; }
         public virtual Video Video { get; set; }
         
         public Guid OwnerID { get; set; }

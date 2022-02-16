@@ -29,18 +29,23 @@ namespace RetroVideoz.WebMVC.Controllers
         // POST: CartLineItem/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create(int videoID, CartLineItemCreate model)
-        //{
-        //    if (!ModelState.IsValid) return View(model);
-        //    var service = new CartLineItemService();
-        //    if (service.CreateCartLineItem(videoID, model))
-        //    {
-        //        TempData["Save Result"] = "Item has been added to your cart.";
-        //        return RedirectToAction("Index");
-        //    }
-        //    ModelState.AddModelError("", "Item was not added to your cart.");
-        //    return View(model);
-        //}
+        public ActionResult Create(int videoID, CartLineItemCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            if(model.VideoID != videoID)
+            {
+                ModelState.AddModelError("", "ID mismatch.");
+                return View(model);
+            }
+            var service = new CartLineItemService();
+            if (service.CreateCartLineItem(model,videoID))
+            {
+                TempData["Save Result"] = "Item has been added to your cart.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Item was not added to your cart.");
+            return View(model);
+        }
 
         //html action link need to pass in video id to url
 

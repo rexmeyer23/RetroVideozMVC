@@ -10,7 +10,7 @@ namespace RetroVideoz.Models
 {
     public class ReviewDetail
     {
-        public int ReviewID { get; set; }
+       public int ReviewID { get; set; }
         [Required]
         [Display(Name = "Video")]
         public int VideoID { get; set; }

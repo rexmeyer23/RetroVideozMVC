@@ -14,9 +14,6 @@
         <th>
             @Html.DisplayNameFor(model => model.CartID)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TransactionID)
-        </th>
         <th></th>
     </tr>
 
@@ -24,9 +21,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.CartID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransactionID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CartID }) |
