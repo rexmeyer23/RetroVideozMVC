@@ -26,7 +26,7 @@
                     <li>@Html.ActionLink("Reviews", "Index", "Review")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Orders", "Index", "Cart")</li>
+                        <li>@Html.ActionLink("Orders", "Index", "CartLineItem")</li>
                     }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>

@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 
 namespace RetroVideoz.Models.CartLineItem
 {
-    public class CartLineItemListed
+    public class CartLineItemDetail
     {
-        public int CartItemID { get; set; }
-        public decimal TotalQuantity { get; set; }
+       public int CartItemId { get; set;}
         [Required]
+        public decimal TotalQuantity { get; set; }
         public decimal TotalPrice { get; set; }
         //[Required]
         //[ForeignKey(nameof(Cart))]
         //public int CartID { get; set; }
         //public virtual Cart Cart { get; set; }
-        //[Required]
+        [Required]
+        [ForeignKey(nameof(Video))]
         public string Title { get; set; }
+        public virtual Video Video { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace RetroVideoz.Models
         public int Quantity { get; set; }
 
         [Display(Name = "Reviews")]
+
         public ICollection<Review> Reviews { get; set; }
 
     }

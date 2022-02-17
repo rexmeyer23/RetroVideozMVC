@@ -11,9 +11,7 @@ namespace RetroVideoz.Models
     public class ReviewDetail
     {
        public int ReviewID { get; set; }
-        [Required]
         [Display(Name = "Video")]
-        public int VideoID { get; set; }
         public string VideoTitle { get; set; }
         [Required]
         [Display(Name = "Header")]

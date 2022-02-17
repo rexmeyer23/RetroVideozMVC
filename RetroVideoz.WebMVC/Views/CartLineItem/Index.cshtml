@@ -4,13 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Orders</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Continue Shopping", "../Video/Index")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalQuantity)
         </th>
@@ -20,30 +23,27 @@
         @*<th>
             @Html.DisplayNameFor(model => model.CartID)
         </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalQuantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalPrice)
-        </td>
-        @*<td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalQuantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalPrice)
+    </td>
+    @*<td>
             @Html.DisplayFor(modelItem => item.CartID)
         </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID})
-        </td>
-    </tr>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID })
+    </td>
+</tr>
 }
 
 </table>

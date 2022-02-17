@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartLineItem\CartLineItemCreate.cs" />
+    <Compile Include="CartLineItem\CartLineItemDetail.cs" />
     <Compile Include="CartLineItem\CartLineItemListed.cs" />
     <Compile Include="Cart\CartCreate.cs" />
     <Compile Include="Cart\CartDetail.cs" />

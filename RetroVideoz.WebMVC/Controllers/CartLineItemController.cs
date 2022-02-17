@@ -31,12 +31,10 @@ namespace RetroVideoz.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(int videoID, CartLineItemCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
-     
             var service = new CartLineItemService();
             if (service.CreateCartLineItem(model,videoID))
             {
-                TempData["Save Result"] = "Item has been added to your cart.";
+                ViewBag.SaveResult = "Item has been added to your cart.";
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Item was not added to your cart.");

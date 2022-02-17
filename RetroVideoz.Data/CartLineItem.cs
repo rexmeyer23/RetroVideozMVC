@@ -24,7 +24,7 @@ namespace RetroVideoz.Data
         //video foreign - one to one
  
         [ForeignKey(nameof(Video))]
-        public int? VideoID { get; set; }
+        public int VideoID { get; set; }
         public virtual Video Video { get; set; }
         public decimal CartLineItemPrice
         {

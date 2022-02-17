@@ -29,7 +29,6 @@ namespace RetroVideoz.Data
         [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
         [ForeignKey(nameof(Video))]
-        [Required]
         public int VideoID { get; set; }
         public virtual Video Video { get; set; }
         

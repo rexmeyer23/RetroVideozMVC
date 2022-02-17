@@ -20,15 +20,17 @@ namespace RetroVideoz.Services
             {
                 video = ctx.Videos.Find(videoID);
                 video.Quantity -= model.TotalQuantity;
+                ctx.Videos.Remove(video);
                 ctx.SaveChanges();
             }
          
                 var entity =
                 new CartLineItem()
                 {
+                    Video = video,
                     CartItemID = model.CartItemID,
                     TotalQuantity = model.TotalQuantity,
-                    Video = video,
+                
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -36,6 +38,7 @@ namespace RetroVideoz.Services
                 ctx.CartLineItems.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+          
         }
         public IEnumerable<CartLineItemListed> GetCartLineItems()
         {
@@ -58,21 +61,21 @@ namespace RetroVideoz.Services
                 return result;
             }
         }
-        public IEnumerable<CartLineItemListed> GetCartLineItemByID(int cartLineID)
+        public CartLineItemDetail GetCartLineItemByID(int cartLineID)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var entity =
                     ctx
                     .CartLineItems
-                    .Where(e => e.CartItemID == cartLineID)
-                    .Select(v => new CartLineItemListed
+                    .Single(e => e.CartItemID == cartLineID);
+                    return new CartLineItemDetail
                     {
-                        Title = v.Video.Title,
-                        TotalPrice = v.CartLineItemPrice,
-                        TotalQuantity = v.TotalQuantity
-                    });
-                return query.ToArray();
+                        Title = entity.Video.Title,
+                        TotalPrice = entity.CartLineItemPrice,
+                        TotalQuantity = entity.TotalQuantity
+                    };
+               
             }
         }
         public bool DeleteCartLineItem(int cartLineItemID)
