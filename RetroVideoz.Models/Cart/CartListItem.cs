@@ -16,18 +16,4 @@ namespace RetroVideoz.Models
 
     }
 
-    public class CartLineItemListed
-    {
-        public int CartItemID { get; set; }
-        [Required]
-        public decimal TotalPrice { get; set; }
-        [Required]
-        [ForeignKey(nameof(Cart))]
-        public int CartID { get; set; }
-        public virtual Cart Cart { get; set; }
-        [Required]
-        [ForeignKey(nameof(Video))]
-        public int VideoID { get; set; }
-        public virtual Video Video { get; set; }
-    }
 }

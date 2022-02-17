@@ -15,8 +15,8 @@ namespace RetroVideoz.WebMVC.Controllers
         // GET: CartLineItem
         public ActionResult Index()
         {
-            var service = new CartServices();
-            var model = service.GetCarts();
+            var service = new CartLineItemService();
+            var model = service.GetCartLineItems();
             return View(model);
         }
 
@@ -52,7 +52,7 @@ namespace RetroVideoz.WebMVC.Controllers
             var cartItem = service.GetCartLineItemByID(id);
             return View(cartItem);
         }
-        //POST: CartLineItem/Delete/{id
+        //POST: CartLineItem/Delete/{id}
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

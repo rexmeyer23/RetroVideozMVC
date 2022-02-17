@@ -195,6 +195,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\RetroVideozWebMVC - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -250,7 +251,6 @@
     <Content Include="Views\Review\Details.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\Review\Delete.cshtml" />
-    <Content Include="Views\CartLineItem\Index.cshtml" />
     <Content Include="Views\CartLineItem\Delete.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Create.cshtml" />
@@ -258,6 +258,7 @@
     <Content Include="Views\Cart\Edit.cshtml" />
     <Content Include="Views\Cart\Delete.cshtml" />
     <Content Include="Views\CartLineItem\Create.cshtml" />
+    <Content Include="Views\CartLineItem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

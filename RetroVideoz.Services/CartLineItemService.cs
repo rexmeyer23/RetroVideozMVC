@@ -1,5 +1,6 @@
 ﻿using RetroVideoz.Data;
 using RetroVideoz.Models;
+using RetroVideoz.Models.CartLineItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,19 +37,40 @@ namespace RetroVideoz.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<VideoCartItems> GetCartLineItemByID(int cartLineItemID)
+        public IEnumerable<CartLineItemListed> GetCartLineItems()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .CartLineItems.ToList();
+                List<CartLineItemListed> result = new List<CartLineItemListed>();
+                foreach (CartLineItem v in query)
+                {
+                    CartLineItemListed cartItem = new CartLineItemListed
+                    {
+                        Title = v.Video.Title,
+                        TotalPrice = v.CartLineItemPrice,
+                        TotalQuantity = v.TotalQuantity
+                    };
+                    result.Add(cartItem);
+            }
+                return result;
+            }
+        }
+        public IEnumerable<CartLineItemListed> GetCartLineItemByID(int cartLineID)
+        {
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .CartLineItems
-                    .Where(e => e.CartItemID == cartLineItemID)
-                    .Select(v => new VideoCartItems
+                    .Where(e => e.CartItemID == cartLineID)
+                    .Select(v => new CartLineItemListed
                     {
                         Title = v.Video.Title,
-                        Price = v.Video.Price,
-                        Quantity = v.Video.Quantity
+                        TotalPrice = v.CartLineItemPrice,
+                        TotalQuantity = v.TotalQuantity
                     });
                 return query.ToArray();
             }

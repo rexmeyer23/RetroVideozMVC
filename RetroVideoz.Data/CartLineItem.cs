@@ -22,7 +22,7 @@ namespace RetroVideoz.Data
         public int? CartID { get; set; }
         public virtual Cart Cart { get; set; }
         //video foreign - one to one
-        [Required]
+ 
         [ForeignKey(nameof(Video))]
         public int? VideoID { get; set; }
         public virtual Video Video { get; set; }

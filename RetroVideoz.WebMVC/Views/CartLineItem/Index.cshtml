@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RetroVideoz.Models.CartLineItemListed>
+﻿@model IEnumerable<RetroVideoz.Models.CartLineItem.CartLineItemListed>
 
 @{
     ViewBag.Title = "Index";
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CartItemID)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.TotalQuantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CartID)
+            @Html.DisplayNameFor(model => model.TotalPrice)
         </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CartID)
+        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.VideoID)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th></th>
     </tr>
@@ -29,20 +29,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CartItemID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.TotalQuantity)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CartID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.VideoID)
-        </td>
-        <td>
-       
-            @Html.ActionLink("Delete", "Delete", new {id=item.CartItemID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID})
         </td>
     </tr>
 }
