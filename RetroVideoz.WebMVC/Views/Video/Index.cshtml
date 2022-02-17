@@ -4,48 +4,71 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Video Page</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VideoID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.VideoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.VideoID })
-        </td>
-    </tr>
+@*<div class="col-md-4 col-xs-6 border-primary mb-3">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Html.DisplayNameFor(model => model.Title)
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                @Html.DisplayNameFor(model => model.Year)
+                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Quantity)
+            </div>
+        </div>
+    </div>*@
+
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-xs-6 border-primary mb-3">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                <h1>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </h1>
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h3>Year</h3>
+                        @Html.DisplayFor(modelItem => item.Year)
+                        <h3>Price</h3>
+                        @Html.DisplayFor(modelItem => item.Price)
+
+                        <h3>Quantity</h3>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.VideoID }) |
+                        @Html.ActionLink("View Title", "Details", new { id = item.VideoID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.VideoID })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
 
-</table>
+

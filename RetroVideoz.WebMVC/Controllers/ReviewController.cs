@@ -81,6 +81,7 @@ namespace RetroVideoz.WebMVC.Controllers
             if (service.UpdateReview(model))
             {
                 TempData["Save Result"] = "Review has been updated!";
+                return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Review was not updated.");
             return View(model);

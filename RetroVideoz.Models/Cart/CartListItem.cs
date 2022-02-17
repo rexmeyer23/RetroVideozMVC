@@ -12,14 +12,15 @@ namespace RetroVideoz.Models
     public class CartListItem
     {
         public int CartID { get; set; }
-     
+        public decimal TotalPrice { get; set; }
+
     }
 
     public class CartLineItemListed
     {
         public int CartItemID { get; set; }
         [Required]
-        public int TotalQuantity { get; set; }
+        public decimal TotalPrice { get; set; }
         [Required]
         [ForeignKey(nameof(Cart))]
         public int CartID { get; set; }

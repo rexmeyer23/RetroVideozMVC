@@ -92,6 +92,7 @@ namespace RetroVideoz.WebMVC.Controllers
             if (service.UpdateVideo(model))
             {
                 TempData["Save Result"] = "The Video was updated!";
+                return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Video was not updated.");
             return View(model);

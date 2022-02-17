@@ -37,7 +37,7 @@ namespace RetroVideoz.Services
                     CartListItem carts = new CartListItem
                     {
                         CartID = cart.CartID,
-                        //TransactionID = cart.TransactionID,
+                        TotalPrice = cart.TotalPrice
                     };
                     list.Add(carts);
                 }
@@ -90,7 +90,7 @@ namespace RetroVideoz.Services
                     .Single(e => e.CartID.Equals(model.CartID));
 
                 entity.UserID = model.UserID;
-                //entity.TransactionID = model.TransactionID;
+               
                 return ctx.SaveChanges() == 1;
             }
         }

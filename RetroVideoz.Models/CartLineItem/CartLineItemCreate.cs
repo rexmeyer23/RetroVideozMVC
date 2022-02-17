@@ -18,11 +18,6 @@ namespace RetroVideoz.Models
         [ForeignKey(nameof(Cart))]
         public int CartID { get; set; }
         public virtual Cart Cart { get; set; }
-        [Required]
-        [ForeignKey(nameof(Video))]
-        public int VideoID { get; set; }
-        public virtual Video Video { get; set; }
-
 
     }
 }

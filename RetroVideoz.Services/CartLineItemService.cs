@@ -27,7 +27,6 @@ namespace RetroVideoz.Services
                 {
                     CartItemID = model.CartItemID,
                     TotalQuantity = model.TotalQuantity,
-                    Cart = model.Cart,
                     Video = video,
                 };
             using (var ctx = new ApplicationDbContext())
