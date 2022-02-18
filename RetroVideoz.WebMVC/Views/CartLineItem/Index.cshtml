@@ -1,49 +1,51 @@
-﻿@model IEnumerable<RetroVideoz.Models.CartLineItem.CartLineItemListed>
+﻿@model IEnumerable<RetroVideoz.Models.CartLineItemListed>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Orders</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Continue Shopping", "../Video/Index")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CartItemID)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.TotalQuantity)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalPrice)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.CartID)
-        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalQuantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalPrice)
-    </td>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.CartID)
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CartItemID)
         </td>*@
-    <td>
-        @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID })
-    </td>
-</tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CartItemID}) |
+            @Html.ActionLink("Details", "Details", new { item.CartItemID }) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.CartItemID })
+        </td>
+    </tr>
 }
 
 </table>

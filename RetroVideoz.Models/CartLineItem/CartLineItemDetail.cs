@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetroVideoz.Models.CartLineItem
+namespace RetroVideoz.Models
 {
     public class CartLineItemDetail
     {
-       public int CartItemId { get; set;}
+        public int CartItemID { get; set;}
         [Required]
         public decimal TotalQuantity { get; set; }
         public decimal TotalPrice { get; set; }

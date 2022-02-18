@@ -57,9 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cart.cs" />
     <Compile Include="CartLineItem.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202202180039534_InitialCreate.cs" />
+    <Compile Include="Migrations\202202180039534_InitialCreate.designer.cs">
+      <DependentUpon>202202180039534_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202180154415_CartRemoved.cs" />
+    <Compile Include="Migrations\202202180154415_CartRemoved.designer.cs">
+      <DependentUpon>202202180154415_CartRemoved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="Video.cs" />
@@ -67,6 +75,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202202180039534_InitialCreate.resx">
+      <DependentUpon>202202180039534_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202180154415_CartRemoved.resx">
+      <DependentUpon>202202180154415_CartRemoved.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

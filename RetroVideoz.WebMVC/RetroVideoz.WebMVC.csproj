@@ -169,7 +169,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CartLineItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -252,11 +251,6 @@
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\Review\Delete.cshtml" />
     <Content Include="Views\CartLineItem\Delete.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Cart\Create.cshtml" />
-    <Content Include="Views\Cart\Details.cshtml" />
-    <Content Include="Views\Cart\Edit.cshtml" />
-    <Content Include="Views\Cart\Delete.cshtml" />
     <Content Include="Views\CartLineItem\Create.cshtml" />
     <Content Include="Views\CartLineItem\Index.cshtml" />
   </ItemGroup>

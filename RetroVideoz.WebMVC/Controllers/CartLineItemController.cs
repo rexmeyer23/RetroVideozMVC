@@ -34,7 +34,7 @@ namespace RetroVideoz.WebMVC.Controllers
             var service = new CartLineItemService();
             if (service.CreateCartLineItem(model,videoID))
             {
-                ViewBag.SaveResult = "Item has been added to your cart.";
+                TempData["Save Result"] = "Item has been added to your cart.";
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Item was not added to your cart.");

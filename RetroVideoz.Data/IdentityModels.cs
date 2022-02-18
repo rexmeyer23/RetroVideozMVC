@@ -38,7 +38,6 @@ namespace RetroVideoz.Data
         public DbSet<Video> Videos { get; set; }
         public DbSet<Review> Reviews { get; set; }
     
-        public DbSet<Cart> Carts { get; set; }
         public DbSet<CartLineItem> CartLineItems { get; set; }
       
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

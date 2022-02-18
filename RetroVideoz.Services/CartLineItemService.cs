@@ -1,6 +1,5 @@
 ﻿using RetroVideoz.Data;
 using RetroVideoz.Models;
-using RetroVideoz.Models.CartLineItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +19,14 @@ namespace RetroVideoz.Services
             {
                 video = ctx.Videos.Find(videoID);
                 video.Quantity -= model.TotalQuantity;
-                ctx.Videos.Remove(video);
+                //ctx.Videos.Remove(video);
                 ctx.SaveChanges();
             }
          
                 var entity =
                 new CartLineItem()
                 {
-                    Video = video,
-                    CartItemID = model.CartItemID,
+                    VideoID = video.VideoID,
                     TotalQuantity = model.TotalQuantity,
                 
                 };
@@ -36,7 +34,7 @@ namespace RetroVideoz.Services
             {
              
                 ctx.CartLineItems.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() >= 1;
             }
           
         }
@@ -52,6 +50,7 @@ namespace RetroVideoz.Services
                 {
                     CartLineItemListed cartItem = new CartLineItemListed
                     {
+                        CartItemID = v.CartItemID,
                         Title = v.Video.Title,
                         TotalPrice = v.CartLineItemPrice,
                         TotalQuantity = v.TotalQuantity

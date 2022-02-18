@@ -17,6 +17,7 @@ namespace RetroVideoz.WebMVC.Controllers
     public class VideoController : Controller
     {
         // GET: Videos -- list videos in admin database
+       
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
