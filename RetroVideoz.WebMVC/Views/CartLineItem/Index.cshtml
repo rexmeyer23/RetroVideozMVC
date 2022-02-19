@@ -4,48 +4,78 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cart Items</h2>
+<div class="table-responsive shopping-cart">
+    <table class="table">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TotalQuantity)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.CartItemID)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.TotalQuantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="video-item">
+                        <a class="video-thumb"><img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6474/6474743_so.jpg" width="160" height="180" /></a>
+                        <div class="video-info">
+                            <h4 class="video-title">
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </h4>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.TotalQuantity)
+                </td>
+                <td class="text-center text-lg text-medium">
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID })
+                    </button>
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.CartItemID)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalQuantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CartItemID}) |
-            @Html.ActionLink("Details", "Details", new { item.CartItemID }) |
-            @Html.ActionLink("Delete", "Delete", new {id = item.CartItemID })
-        </td>
-    </tr>
-}
+    </table>
+</div>
+<div class="cartline-footer">
+    <div class="column">
+        <a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>@Html.ActionLink("Back to Videos", "../Video/Index")</a>
+    </div>
+</div>
+<style>
+    .cartline-footer {
+        display: table;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #e1e7ec
+    }
 
-</table>
+
+
+        .cartline-footer > .column {
+            display: table-cell;
+            padding: 5px 0;
+            vertical-align: middle
+        }
+
+    .cartline-footer > .column:last-child {
+        text-align: right
+    }
+
+        .cartline-footer > .column:last-child .btn {
+            margin-right: 0;
+            margin-left: 15px
+        }
+
+</style>

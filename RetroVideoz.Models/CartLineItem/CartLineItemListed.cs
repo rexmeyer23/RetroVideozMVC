@@ -21,5 +21,7 @@ namespace RetroVideoz.Models
         //public virtual Cart Cart { get; set; }
         //[Required]
         public string Title { get; set; }
+        public HomeVideoFormat Format { get; set; }
+        public GenreType Genre { get; set; }
     }
 }
