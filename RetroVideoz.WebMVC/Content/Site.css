@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*footer*/
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    border: black;
+}

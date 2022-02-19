@@ -4,7 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Video Page</h2>
+
+<h1 class="text-center text-muted">Video Catalog</h1>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -30,45 +31,76 @@
     </div>*@
 
 
-
-@foreach (var item in Model)
-{
-    <div class="col-md-4 col-xs-6 border-primary mb-3">
-        <div class="card mb-3" style="max-width: 540px;">
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 border border-dark mb-3">
             <div class="row g-0">
-                <div class="col-md-12">
-                    <div class="card-header text-white bg-info">
-                        <p class="card-text">
-                            <h5 class="card-title">
-                                <h1>
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </h1>
-                            </h5>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <h3>Year</h3>
-                        @Html.DisplayFor(modelItem => item.Year)
-                        <h3>Price</h3>
-                        @Html.DisplayFor(modelItem => item.Price)
-
-                        <h3>Quantity</h3>
-                        @Html.DisplayFor(modelItem => item.Quantity)
+                <div class="col-md-12 mt-2">
+                    <div class="card">
+                        <div class="card-header text-white bg-info">
+                            <p class="card-text">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.VideoID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.VideoID })
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-img-actions"><img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6474/6474743_so.jpg" class="card-img img-fluid" width="96" height="350" /></div>
+                            <div class="card-text">
+                                <div class="mb-2">
+                                    <h2 class="font-weight-semibold text-default">@Html.DisplayFor(modelItem => item.Title)</h2><a class="text-muted" data-abc="true">
+                                        @Html.DisplayFor(modelItem => item.Year)
+                                    </a>
+                                </div>
+                                <h3 class="mb-0 font-weight-semibold">
+                                    $@Html.DisplayFor(modelItem => item.Price)
+                                </h3><a class="text-muted" data-abc="true">
+                                    In Stock: @Html.DisplayFor(modelItem => item.Quantity)
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="card-footer">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.VideoID }) |
-                        @Html.ActionLink("View Title", "Details", new { id = item.VideoID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.VideoID })
+                        <button type="button" class="btn-bg-cart float-right"><i class="fa fa-cart-plus mr-2">@Html.ActionLink("View Title", "Details", new { id = item.VideoID }) </i></button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
+</div>
+<style>
 
-}
+    .card-img-actions {
+        position: relative;
+    }
 
+    .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.25rem;
+        text-align: center;
+        border-color: black;
+       
+    }
 
+    .logline {
+        display: inline;
+    }
+
+    .card-img {
+        width: 250px;
+    }
+    .card {
+        border: black;
+    }
+    .btn-bg-cart {
+        background-color: yellow;
+        color: #fff;
+    }
+
+        .btn-bg-cart:hover {
+            color: #fff
+        }
+</style>
