@@ -39,7 +39,7 @@
                     @Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
                 <td>
-                    <button class="btn btn-outline-secondary" type="button">
+                    <button class="btn btn-outline-secondary" type="button" id="b1">
                         @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID })
                     </button>
                 </td>
@@ -50,10 +50,13 @@
 </div>
 <div class="cartline-footer">
     <div class="column">
-        <a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>@Html.ActionLink("Back to Videos", "../Video/Index")</a>
+        <button class="btn btn-outline-secondary">@Html.ActionLink("Back to Videos", "../Video/Index")</button>
     </div>
 </div>
 <style>
+    #b1{
+        color: red;
+    }
     .cartline-footer {
         display: table;
         width: 100%;

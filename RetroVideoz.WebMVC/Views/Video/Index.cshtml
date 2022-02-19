@@ -34,8 +34,8 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4 col-xs-12 border border-dark mb-3">
-            <div class="row g-0">
+        <div class="col-md-4 col-xs-12 mb-3">
+            <div class="row g-0" id="titleBox">
                 <div class="col-md-12 mt-2">
                     <div class="card">
                         <div class="card-header text-white bg-info">
@@ -48,7 +48,7 @@
                             <div class="card-img-actions"><img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6474/6474743_so.jpg" class="card-img img-fluid" width="96" height="350" /></div>
                             <div class="card-text">
                                 <div class="mb-2">
-                                    <h2 class="font-weight-semibold text-default">@Html.DisplayFor(modelItem => item.Title)</h2><a class="text-muted" data-abc="true">
+                                    <h2 class="font-weight-bold text-default">@Html.DisplayFor(modelItem => item.Title)</h2><a class="text-muted" data-abc="true">
                                         @Html.DisplayFor(modelItem => item.Year)
                                     </a>
                                 </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="card-footer">
-                        <button type="button" class="btn-bg-cart float-right"><i class="fa fa-cart-plus mr-2">@Html.ActionLink("View Title", "Details", new { id = item.VideoID }) </i></button>
+                        <div type="button" class="btn btn-warning btn-lg btn-block"><i class="fa fa-cart-plus mr-2">@Html.ActionLink("View Title", "Details", new { id = item.VideoID }) </i></div>
                     </div>
                 </div>
             </div>
@@ -71,6 +71,11 @@
     }
 </div>
 <style>
+    
+    #titleBox{
+        border: 2px;
+        border-color: black;
+    }
 
     .card-img-actions {
         position: relative;
@@ -84,7 +89,16 @@
         border-color: black;
        
     }
-
+    .card-text{
+        color: blue;
+        font-weight: bold;
+    }
+    .col-md-4 col-xs-12{
+        border-color: black;
+    }
+    .h2 {
+        font-weight:bold;
+    }
     .logline {
         display: inline;
     }
@@ -93,11 +107,30 @@
         width: 250px;
     }
     .card {
-        border: black;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: whitesmoke;
+        background-clip: border-box;
+        border: 2px solid black;
+        border-radius: .1875rem
+    }
+    .card:hover{
+        background-color: #edc236;
+    }
+    .card-footer {
+        background-color: whitesmoke;
+        background-clip: border-box;
+        border: 2px solid black;
+        border-radius: 8px;
     }
     .btn-bg-cart {
-        background-color: yellow;
-        color: #fff;
+       
+        border-radius:25px;
     }
 
         .btn-bg-cart:hover {

@@ -49,10 +49,33 @@
 </body>
 </html>
 <style>
+    .body-container{
+        border-color: black;
+        border-top: 2px;
+    }
     .navbar {
         background-color: white;
     }
-    .navbar-brand{
-        text-emphasis-color: black;
+
+    .navbar-inverse .navbar-brand {
+        color: black;
     }
+
+        .navbar-inverse .navbar-brand:hover,
+        .navbar-inverse .navbar-brand:focus {
+            color: #edc236;
+            background-color: transparent;
+            border-color: black;
+            border: 3px;
+        }
+    .navbar-inverse .navbar-nav > li > a {
+        color: black;
+        font-family: Arial;
+        font-size: 15px;
+        background-color: transparent;
+    }
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #edc236;
+        } 
 </style>
