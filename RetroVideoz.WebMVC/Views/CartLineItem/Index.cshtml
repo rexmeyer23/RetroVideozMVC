@@ -39,7 +39,7 @@
                     @Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
                 <td>
-                    <button class="btn btn-outline-secondary" type="button" id="b1">
+                    <button class="btn btn-outline-secondary" type="button">
                         @Html.ActionLink("Delete", "Delete", new { id = item.CartItemID })
                     </button>
                 </td>
@@ -50,13 +50,19 @@
 </div>
 <div class="cartline-footer">
     <div class="column">
-        <button class="btn btn-outline-secondary">@Html.ActionLink("Back to Videos", "../Video/Index")</button>
+        <button class="btn btn-outline-primary">@Html.ActionLink("Back to Videos", "../Video/Index")</button>
     </div>
 </div>
 <style>
-    #b1{
-        color: red;
+    .btn-outline-secondary {
+        background-color: whitesmoke;
+        border-color: red;
     }
+
+    .btn-outline-primary {
+        background-color: black;
+    }
+
     .cartline-footer {
         display: table;
         width: 100%;
@@ -72,13 +78,16 @@
             vertical-align: middle
         }
 
-    .cartline-footer > .column:last-child {
-        text-align: right
+            .cartline-footer > .column:last-child {
+                text-align: right
+            }
+
+                .cartline-footer > .column:last-child .btn {
+                    margin-right: 0;
+                    margin-left: 15px
+                }
+
+    .table-responsive {
+       background-color: whitesmoke;
     }
-
-        .cartline-footer > .column:last-child .btn {
-            margin-right: 0;
-            margin-left: 15px
-        }
-
 </style>

@@ -24,11 +24,17 @@
                             <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6474/6474743_so.jpg" width="380" height="550" />
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 align-items-end">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                         <h4 class="pro-d-title">
                             @Html.DisplayFor(model => model.Title)
                         </h4>
-                        <p>
+                        <p class="description">
                             @Html.DisplayFor(model => model.Description)
                         </p>
                         <div class="descriptiveItems">
@@ -55,15 +61,15 @@
                         </div>
                         <p>
                             <button class="btn btn-outline-dark" type="button">
-                                <i class="fade fa-index"></i>
+                                
                                 @Html.ActionLink("Back to Videos", "Index")
                             </button>
                             <button class="btn btn-outline-warning" type="button">
-                                <i class="fade fa-review"></i>
+                          
                                 @Html.ActionLink("Write a Review", "../Review/Create", new { Model.VideoID })
                             </button>
                             <button class="btn btn-outline-warning" type="button">
-                                <i class="fade fa-shopping-cart"></i>
+                               
                                 @Html.ActionLink("Add to Cart", "../CartLineItem/Create", new { Model.VideoID })
                             </button>
                         </p>
@@ -75,15 +81,23 @@
 </div>
 
 <style>
-    .prod-d-title {
-        font-size: 26px;
+    h4{
+        font-size: 30px;
         margin-top: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+   
+
     .descriptiveItems{
         border-top: 1px solid #eee;
         border-bottom: 1px solid #eee;
         padding: 10px 0;
         margin: 15px 0;
+        border-color:#edc236;
+    }
+    .description{
+        font-size: 20px;
+
     }
         .descriptiveItems span {
             
@@ -92,7 +106,10 @@
         .descriptiveItems a, .price:hover {
             color: #edc236;
         }
-    .btn {
-        outline-color: black;
+    .btn-outline-dark {
+        background-color: black;
+    }
+    .btn-outline-warning{
+        background-color:#edc236;
     }
 </style>

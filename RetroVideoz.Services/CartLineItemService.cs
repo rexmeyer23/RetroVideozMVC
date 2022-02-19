@@ -19,7 +19,6 @@ namespace RetroVideoz.Services
             {
                 video = ctx.Videos.Find(videoID);
                 video.Quantity -= model.TotalQuantity;
-                //ctx.Videos.Remove(video);
                 ctx.SaveChanges();
             }
          
