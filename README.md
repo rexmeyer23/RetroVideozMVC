@@ -7,11 +7,11 @@ This is an MVC 5 .Net Framework application with Bootstrap 3 bundled.
 
 # Languages and Other Tehcnologies Used
 Visual Studio Community
-C#
-.Net Framework
-HTML
-CSS
-Bootstrap
+- C#
+- .Net Framework
+- HTML
+- CSS
+- Bootstrap
 
 # Access
 User must register an account before accessing. 
